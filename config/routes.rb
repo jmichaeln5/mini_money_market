@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'pages/login'
   get 'pages/register'
+
+  get 'pages/borrower_dash'
+  get 'pages/lender_dash'
+
   # get 'devise/sessions/lender-sign-in', to: "lenders#lender_sign_in", as: "lender-sign-in"
   devise_for :borrowers
   devise_for :lenders

@@ -1,0 +1,56 @@
+<h1>Borrower dash</h1>
+
+<h1> Welcome <%= current_borrower.email %> </h1>
+
+<hr>
+<br>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+  Apply for Loan
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel"> Apply for Loan </h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <h1> Monthly Income: </h1>
+          <input type="text" name="Income"><br>
+        </form>
+
+        <form action="file">
+          <h1>Add Pay Stub</h1>
+          <input type="file" name="Pay Stub"><br>
+        </form>
+
+        <form>
+          <h1> Loan Amount: </h1>
+          <input type="text" name="Loan Amount"><br>
+        </form>
+
+        <div>
+          <h1>Terms of Service:</h1>
+            <div class="text-muted" style="height:120px;width:100%; border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime, ut ab quod, beatae cupiditate voluptates, praesentium quisquam eos aliquam unde odit velit temporibus dignissimos, modi obcaecati ad aspernatur itaque voluptatibus! Ut ex alias voluptas molestiae, quidem vitae laudantium laborum reiciendis illo reprehenderit repellat in perferendis, commodi modi dolores beatae eos voluptatem architecto. Earum voluptatum quasi amet voluptas quis, repellendus dolor explicabo non similique ducimus asperiores, nobis esse, molestiae laboriosam? Consectetur tempora, quasi obcaecati beatae. Molestiae quaerat debitis omnis tempora inventore sapiente, alias nihil fugit in, pariatur commodi perferendis, dicta labore culpa libero, saepe voluptas maxime illum quos et. Laudantium.
+            </div>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit Request</button>
+      </div>
+    </div>
+  </div>
+</div>

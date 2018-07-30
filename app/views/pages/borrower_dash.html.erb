@@ -1,3 +1,5 @@
+<div class="text-center">
+
 <h1>Borrower dash</h1>
 
 <h1> Welcome <%= current_borrower.email %> </h1>
@@ -42,6 +44,7 @@
           <h1>Terms of Service:</h1>
             <div class="text-muted" style="height:120px;width:100%; border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime, ut ab quod, beatae cupiditate voluptates, praesentium quisquam eos aliquam unde odit velit temporibus dignissimos, modi obcaecati ad aspernatur itaque voluptatibus! Ut ex alias voluptas molestiae, quidem vitae laudantium laborum reiciendis illo reprehenderit repellat in perferendis, commodi modi dolores beatae eos voluptatem architecto. Earum voluptatum quasi amet voluptas quis, repellendus dolor explicabo non similique ducimus asperiores, nobis esse, molestiae laboriosam? Consectetur tempora, quasi obcaecati beatae. Molestiae quaerat debitis omnis tempora inventore sapiente, alias nihil fugit in, pariatur commodi perferendis, dicta labore culpa libero, saepe voluptas maxime illum quos et. Laudantium.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam enim fuga numquam veniam velit, tenetur expedita praesentium tempore adipisci unde itaque possimus delectus culpa eius rerum esse asperiores excepturi neque rem distinctio nobis. Ut provident beatae magnam consequatur earum veniam veritatis eos non, aperiam possimus deserunt, culpa, pariatur, nostrum ipsa qui! Incidunt earum distinctio rem sunt totam molestias maiores cum placeat at odio possimus temporibus cupiditate dolore, repellat, eaque eligendi quaerat ad officia ullam, illum. Culpa sit quos obcaecati facilis ab, tempora, ipsum minus vel velit, est dolore at atque non sequi. Quae ipsum, excepturi dolorem libero magnam deserunt a.
             </div>
         </div>
 
@@ -49,8 +52,35 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit Request</button>
+
+        <%= link_to "REQUEST LOAN", pages_borrower_step_2_path, class:"btn btn-success btn-block", style:"font-size:200%;" %>
+
+
+
+        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Submit Request
+        </button> -->
+
+        <!-- <button type="button" class="btn btn-primary">
+          Submit Request
+          <%= link_to pages_borrower_step_2_path %>
+        </button> -->
+
+      <!-- <div class="button btn-success btn-block">
+        <%= link_to "APPLY FOR LOAN", pages_borrower_step_2_path %>
+      </div> -->
+
       </div>
     </div>
   </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 </div>

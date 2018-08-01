@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180727182533) do
+ActiveRecord::Schema.define(version: 20180801174725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.string "actionable_type"
+    t.bigint "actionable_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["actionable_type", "actionable_id"], name: "index_actions_on_actionable_type_and_actionable_id"
+  end
 
   create_table "borrowers", force: :cascade do |t|
     t.string "first_name"
@@ -41,10 +50,6 @@ ActiveRecord::Schema.define(version: 20180727182533) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.index ["email"], name: "index_borrowers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_borrowers_on_reset_password_token", unique: true
   end
@@ -68,10 +73,6 @@ ActiveRecord::Schema.define(version: 20180727182533) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.index ["email"], name: "index_lenders_on_email", unique: true
     t.index ["reset_password_token"], name: "index_lenders_on_reset_password_token", unique: true
   end

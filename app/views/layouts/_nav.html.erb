@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+    <% if current_lender %>
+
+      <li class="nav-item nav-link">
+          <%= link_to 'Lenders', lenders_path, class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+          <%= link_to "Borrowers", borrowers_path, class:"nav-link" %>﻿﻿
+      </li>
+
+
+      <li class="nav-item">
+          <%= link_to "Login as Lender", new_lender_session_path, class:"nav-link"  %>﻿﻿
+      </li>
+      <li class="nav-item">
+          <%= link_to "Login as Borrower", new_borrower_session_path, class:"nav-link" %>﻿﻿
+      </li>
+
+      <li class="nav-item nav-link">
+         <%= link_to "Sign out", destroy_lender_session_path, method: :delete, class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+
+      <% elsif current_borrower %>
+
+      <li class="nav-item nav-link">
+          <%= link_to 'Borrowers', borrowers_path, class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+          <%= link_to "Login as Lender", new_lender_session_path, class:"nav-link"  %>﻿﻿
+      </li>
+      <li class="nav-item">
+          <%= link_to "Login as Borrower", new_borrower_session_path, class:"nav-link" %>﻿﻿
+      </li>
+
+      <li class="nav-item nav-link">
+         <%= link_to "Sign out", destroy_lender_session_path, method: :delete, class:"nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+
+      <% else %>
+
+      <li class="nav-item">
+          <%= link_to "Login", pages_login_path, class:"nav-link" %>﻿﻿
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+
+      <li class="nav-item nav-link">
+          <%= link_to 'Lenders', lenders_path, class:"nav-link" %>
+      </li>
+
+      <li class="nav-item nav-link">
+          <%= link_to 'Borrowers', borrowers_path, class:"nav-link" %>
+      </li>
+
+
+      <% end %>
+
+
+
+    </ul>
+  </div>
+</nav>

@@ -1,13 +1,6 @@
 <%= form_for(:lender, url: registration_path(:lender)) do |f| %>
   <%#= devise_error_messages! %>
 
-  <br>
-  <br>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email", style:"font-size: 3rem; margin-bottom: 2rem;"%>
-  </div>
-
   <div class="field">
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -22,6 +15,11 @@
       <div class="field">
         <%= f.label :last_name %>
         <%= f.text_field :last_name, id: :lender_last_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email"%>
       </div>
 
       <div class="field">
@@ -44,18 +42,16 @@
         <%= f.number_field :zip, id: :lender_zip %>
       </div>
 
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off", placeholder:"password"%>
+      </div>
 
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"password confirmation"%>
+      </div>
 
-    <%= f.password_field :password, autocomplete: "off", placeholder:"password", style:"font-size: 3rem;"%>
-  </div>
+      <div class="actions">
+        <%= f.submit "Sign up", class:"btn btn-success btn-primary"%>
+      </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"passowrd confirmation", style:"font-size: 3rem;"%>
-  </div>
-
-  <br>
-
-  <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-signin", style:"font-size: 3rem; width: 50vw;" %>
-  </div>
 <% end %>

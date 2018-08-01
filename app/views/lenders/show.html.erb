@@ -35,5 +35,17 @@
   <%= @lender.zip %>
 </p>
 
+
+<!-- Polymorphic => Action -->
+<%= form_with(model: [@lender, Action.new], local: true) do |form |%>
+  <div class="field">
+    <%= form.label :amount %> <br>
+    <%= form.number_field :amount %>
+  </div>
+    <%= form.submit class:"btn btn-primary" %>
+<% end %>
+
+
+
 <%= link_to 'Edit', edit_lender_path(@lender) %> |
 <%= link_to 'Back', lenders_path %>

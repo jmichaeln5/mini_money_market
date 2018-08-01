@@ -1,17 +1,81 @@
-<h1 style="text-align: center; font-size: 4rem;">Login</h1>
-<div class="login-modal-lender">
-	<%= render 'lender-login'%>
-</div>
-<div class="login-modal-borrower">
-	<%= render 'borrower-login' %>
-</div>
-<div style="font-size: 2rem; text-align: center;">
-  <span>
-  	*Don't have an account?
-  </span>
-  <div>
-  	<button type="button" class="btn btn-signup">
-			<%= link_to 'Sign up here', pages_register_path, style:"color: white;"%>
-  	</button>
-  </div>
+<div class="text-center">
+
+	<h1>Login</h1>
+	<br>
+
+  <div class="row">
+    <div class="col">
+
+			<img src="http://via.placeholder.com/300x300" alt="">
+			<br>
+<!-- Lender Login Modal Begin -->
+			<!-- Button trigger modal -->
+			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+			    Lender Login
+			  </button>
+
+			  <!-- Modal -->
+			  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			    <div class="modal-dialog" role="document">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <h5 class="modal-title" id="exampleModalLabel"> Lender login </h5>
+			          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			            <span aria-hidden="true">&times;</span>
+			          </button>
+			        </div>
+			        <div class="modal-body">
+
+			          <%= render 'devise/sessions/lender' %>
+
+							</div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+<!-- Lender Login Modal End -->
+    </div>
+
+    <div class="col">
+			<img src="http://via.placeholder.com/300x300" alt="">
+			<br>
+
+<!-- Borrower Login Modal Begin -->
+			<!-- Button trigger modal -->
+			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+			    Borrower Login
+			  </button>
+
+			  <!-- Modal -->
+			  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			    <div class="modal-dialog" role="document">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <h5 class="modal-title" id="exampleModalLabel">Borrower login </h5>
+			          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			            <span aria-hidden="true">&times;</span>
+			          </button>
+			        </div>
+			        <div class="modal-body">
+
+			          <%= render 'devise/sessions/borrower' %>
+
+							</div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+<!-- Borrower Login Modal End -->
+    </div>
+	</div>
+	<br>
+
+	<h2>*Don't have an account?
+	<br>
+	<%= link_to 'Sign up here', pages_register_path %>
+	</h2>
 </div>

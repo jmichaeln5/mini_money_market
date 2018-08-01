@@ -4,45 +4,21 @@
     <title>MiniMoneyMarket</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
   </head>
-  
-  <%= render 'layouts/mobile-nav' %>
-  
-    <!-- <li class="nav-item">
-      <%#= link_to 'Lenders', lenders_path %>
-    </li>
 
-    <li class="nav-item">
-      <%#= link_to 'Borrowers', borrowers_path %>
-    </li> -->
+  <%= render 'layouts/nav' %>
 
-    <!-- 
-    <li class="nav-item">
-         <%#= link_to "Register as Lender", new_lender_registration_path %>﻿﻿
-    </li>
-
-    <li class="nav-item">
-         <%#= link_to "Register as Borrower", new_borrower_registration_path %>﻿﻿
-    </li>
-
-    <li class="nav-item">
-         <%#= link_to "Login as Lender", new_lender_session_path %>﻿﻿
-    </li>
-
-    <li class="nav-item">
-         <%#= link_to "Login as Borrower", new_borrower_session_path %>﻿﻿
-    </li>
-
- -->
   <body>
     <div class="container py-5">
 

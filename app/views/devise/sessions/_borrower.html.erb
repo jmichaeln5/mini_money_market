@@ -1,20 +1,20 @@
 <%= form_for(:borrower, url: session_path(:borrower)) do |f| %>
   <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", style:"font-size: 3rem;", placeholder:"email"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email"%>
   </div>
   <br>
   <div class="field">
-    <%= f.password_field :password, autocomplete: "off", style:"font-size: 3rem;", placeholder:"password"%>
+    <%= f.password_field :password, autocomplete: "off", placeholder:"Password"%>
   </div>
   <br>
   <% if devise_mapping_borrower.rememberable? -%>
     <div class="field">
-      <%= f.check_box :remember_me, style:"font-size: 3rem;" %>
-      <%= f.label :remember_me, style:"font-size: 3rem;"%>
+      <%= f.check_box :remember_me  %>
+      <%= f.label :remember_me %>
     </div>
   <% end %>
   <br>
   <div class="actions">
-    <%= f.submit "Log in", class:"btn btn-signin", style:"font-size: 3rem; width: 50vw;"%>
+    <%= f.submit "Log in" %>
   </div>
 <% end %>

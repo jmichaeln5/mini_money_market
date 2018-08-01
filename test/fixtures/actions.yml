@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actionable: one
+  actionable_type: Actionable
+  amount: 1
+
+two:
+  actionable: two
+  actionable_type: Actionable
+  amount: 1

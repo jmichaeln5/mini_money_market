@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
   def home
     if current_lender
-      redirect_to pages_lender_dash_path
+      redirect_to current_lender
     elsif current_borrower
-      redirect_to pages_borrower_dash_path
+      redirect_to current_borrower
     end
   end
 
@@ -13,10 +13,12 @@ class PagesController < ApplicationController
   def register
   end
 
-  def borrow_dash
+  def borrower_dash
+    @borrower = current_borrower
   end
 
   def lender_dash
+    @lender = current_lender
   end
 
   def borrower_step_2

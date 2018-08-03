@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801174725) do
+ActiveRecord::Schema.define(version: 20180803175323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "actions", force: :cascade do |t|
-    t.string "actionable_type"
-    t.bigint "actionable_id"
-    t.integer "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["actionable_type", "actionable_id"], name: "index_actions_on_actionable_type_and_actionable_id"
-  end
 
   create_table "borrowers", force: :cascade do |t|
     t.string "first_name"
@@ -75,6 +66,15 @@ ActiveRecord::Schema.define(version: 20180801174725) do
     t.inet "last_sign_in_ip"
     t.index ["email"], name: "index_lenders_on_email", unique: true
     t.index ["reset_password_token"], name: "index_lenders_on_reset_password_token", unique: true
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "notable_type"
+    t.bigint "notable_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
   end
 
 end

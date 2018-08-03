@@ -14,5 +14,17 @@ module MiniMoneyMarket
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    ActionMailer::Base.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "mail.google.com",
+      :user_name            => "minimoneymarket@gmail.com",
+    :password             => 'Hello123456789!',
+      :authentication       => "login",
+      :enable_starttls_auto => true
+    }
+
+
   end
 end

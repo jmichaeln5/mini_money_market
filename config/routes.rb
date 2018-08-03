@@ -11,15 +11,18 @@ Rails.application.routes.draw do
   get 'pages/borrower_step_2'
   get 'pages/lender_step_2'
 
-  # get 'devise/sessions/lender-sign-in', to: "lenders#lender_sign_in", as: "lender-sign-in"
+  # devise_for :borrowers
+  # devise_for :lenders
+
   devise_for :borrowers
   devise_for :lenders
 
+
   resources :borrowers do
-    resources :actions, module: :borrowers
+    resources :notes, module: :borrowers
   end
   resources :lenders   do
-    resources :actions, module: :lenders  
+    resources :notes, module: :lenders
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

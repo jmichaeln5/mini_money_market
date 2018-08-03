@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
+<!-- <p>
   <strong>First name:</strong>
   <%= @borrower.first_name %>
 </p>
@@ -68,19 +66,214 @@
 <p>
   <strong>Salary:</strong>
   <%= @borrower.salary %>
-</p>
+</p> -->
 
-<!-- Polymorphic => Action -->
-<%= form_with(model: [@borrower, Action.new], local: true) do |form |%>
+
+<div class="text-center">
+
+<h1>Borrower dash</h1>
+
+<h1> Welcome <%= current_borrower.email %> </h1>
+
+<%= link_to 'Edit Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
+
+<hr>
+<br>
+
+
+<%= form_with(model: @borrower, local: true) do |form| %>
+  <% if @borrower.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@borrower.errors.count, "error") %> prohibited this @borrower from being saved:</h2>
+
+      <ul>
+        <% @borrower.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <h1> Required Fields </h1>
+
   <div class="field">
-    <%= form.label :amount %> <br>
-    <%= form.number_field :amount %>
+    <% if @borrower.first_name == nil %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :borrower_first_name %>
+    <% end %>
   </div>
-    <%= form.submit class:"btn btn-primary" %>
-<% end %>
-<!-- Polymorphic => Action -->
+
+  <div class="field">
+    <% if @borrower.last_name == nil %>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :borrower_last_name %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.phone == nil %>
+    <%= form.label :phone %>
+    <%= form.number_field :phone, id: :borrower_phone %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.street == nil %>
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :borrower_street %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.state == nil %>
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :borrower_state %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.zip == nil %>
+    <%= form.label :zip %>
+    <%= form.number_field :zip, id: :borrower_zip %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.company_name == nil %>
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :borrower_company_name %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.employer_street == nil %>
+    <%= form.label :employer_street %>
+    <%= form.text_field :employer_street, id: :borrower_employer_street %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.employer_state == nil %>
+    <%= form.label :employer_state %>
+    <%= form.text_field :employer_state, id: :borrower_employer_state %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.employer_zip == nil %>
+    <%= form.label :employer_zip %>
+    <%= form.number_field :employer_zip, id: :borrower_employer_zip %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.current_position == nil %>
+    <%= form.label :current_position %>
+    <%= form.text_field :current_position, id: :borrower_current_position %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.first_name == nil %>
+    <%= form.label :start_date %>
+    <%= form.text_field :start_date, id: :borrower_start_date %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if @borrower.first_name == nil %>
+    <%= form.label :salary %>
+    <%= form.number_field :salary, id: :borrower_salary %>
+    <% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "Submit", class:"btn btn-primary" %>
+  </div>
+<% end %> -->
+
+<hr>
+
+
+<!-- Button trigger modal -->
+<br>
+<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+  Apply for Loan
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel"> Apply for Loan </h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <h1> Monthly Income: </h1>
+          <input type="text" name="Income"><br>
+        </form>
+
+        <form action="file">
+          <h1>Add Pay Stub</h1>
+          <input type="file" name="Pay Stub"><br>
+        </form>
+
+        <form>
+          <h1> Loan Amount: </h1>
+          <input type="text" name="Loan Amount"><br>
+        </form>
+
+        <div>
+          <h1>Terms of Service:</h1>
+            <div class="text-muted" style="height:120px;width:100%; border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime, ut ab quod, beatae cupiditate voluptates, praesentium quisquam eos aliquam unde odit velit temporibus dignissimos, modi obcaecati ad aspernatur itaque voluptatibus! Ut ex alias voluptas molestiae, quidem vitae laudantium laborum reiciendis illo reprehenderit repellat in perferendis, commodi modi dolores beatae eos voluptatem architecto. Earum voluptatum quasi amet voluptas quis, repellendus dolor explicabo non similique ducimus asperiores, nobis esse, molestiae laboriosam? Consectetur tempora, quasi obcaecati beatae. Molestiae quaerat debitis omnis tempora inventore sapiente, alias nihil fugit in, pariatur commodi perferendis, dicta labore culpa libero, saepe voluptas maxime illum quos et. Laudantium.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam enim fuga numquam veniam velit, tenetur expedita praesentium tempore adipisci unde itaque possimus delectus culpa eius rerum esse asperiores excepturi neque rem distinctio nobis. Ut provident beatae magnam consequatur earum veniam veritatis eos non, aperiam possimus deserunt, culpa, pariatur, nostrum ipsa qui! Incidunt earum distinctio rem sunt totam molestias maiores cum placeat at odio possimus temporibus cupiditate dolore, repellat, eaque eligendi quaerat ad officia ullam, illum. Culpa sit quos obcaecati facilis ab, tempora, ipsum minus vel velit, est dolore at atque non sequi. Quae ipsum, excepturi dolorem libero magnam deserunt a.
+            </div>
+        </div>
 
 
 
-<%= link_to 'Edit', edit_borrower_path(@borrower) %> |
-<%= link_to 'Back', borrowers_path %>
+      </div>
+      <div class="modal-footer">
+
+        <%= link_to "REQUEST LOAN", pages_borrower_step_2_path, class:"btn btn-success btn-block", style:"font-size:200%;" %>
+
+
+
+        <!-- <button type="button" class="btn btn-primary">
+          Submit Request
+          <%= link_to pages_borrower_step_2_path %>
+        </button> -->
+
+      <!-- <div class="button btn-success btn-block">
+        <%= link_to "APPLY FOR LOAN", pages_borrower_step_2_path %>
+      </div> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<hr>
+
+
+<%= render partial: "notes/notes", locals: {notable: @borrower}  %>
+<%= render partial: "notes/form", locals: {notable: @borrower}  %>
+
+<br>
+
+<%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
+
+
+
+
+
+</div>

@@ -8,6 +8,98 @@
 <br>
 
 
+<%= form_with(model: @borrower, local: true) do |form| %>
+  <% if @borrower.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@borrower.errors.count, "error") %> prohibited this @borrower from being saved:</h2>
+
+      <ul>
+        <% @borrower.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1> Required Fields </h1>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :borrower_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :borrower_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.number_field :phone, id: :borrower_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :borrower_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :borrower_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.number_field :zip, id: :borrower_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :borrower_company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employer_street %>
+    <%= form.text_field :employer_street, id: :borrower_employer_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employer_state %>
+    <%= form.text_field :employer_state, id: :borrower_employer_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employer_zip %>
+    <%= form.number_field :employer_zip, id: :borrower_employer_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_position %>
+    <%= form.text_field :current_position, id: :borrower_current_position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.text_field :start_date, id: :borrower_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :salary %>
+    <%= form.number_field :salary, id: :borrower_salary %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit "Submit", class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<br>
+<hr>
+<br>
+
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
   Apply for Loan

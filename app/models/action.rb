@@ -1,3 +1,3 @@
 class Action < ApplicationRecord
-  belongs_to :actionable, polymorphic: true
+  belongs_to :able, polymorphic: true
 end

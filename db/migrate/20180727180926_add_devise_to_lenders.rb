@@ -37,8 +37,8 @@ class AddDeviseToLenders < ActiveRecord::Migration[5.1]
       # t.timestamps null: false
     end
 
-    add_index :lenders, :email,                unique: true
-    add_index :lenders, :reset_password_token, unique: true
+    # add_index :lenders, :email,                unique: true
+    # add_index :lenders, :reset_password_token, unique: true
     # add_index :lenders, :confirmation_token,   unique: true
     # add_index :lenders, :unlock_token,         unique: true
   end

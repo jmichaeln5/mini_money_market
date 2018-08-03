@@ -1,5 +1,12 @@
 <h1> Pages#register </h1>
 
-<%= render "lender-sign-up"  %>
+<%= link_to 'Borrower', new_borrower_registration_path %>
 
-<%= render "borrower-sign-up" %>
+<%= render "devise/registrations/borrower"  %>
+
+<hr>
+<br>
+<br>
+<br>
+
+<%= render "devise/registrations/lender"  %>

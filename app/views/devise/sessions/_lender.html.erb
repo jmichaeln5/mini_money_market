@@ -1,10 +1,10 @@
 <%= form_for(:lender, url: session_path(:lender)) do |f| %>
   <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Lender's Email"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Lender's Email" %>
   </div>
   <br>
   <div class="field">
-    <%= f.password_field :password, autocomplete: "off", placeholder:"Lender's Password"%>
+    <%= f.password_field :password, autocomplete: "off", placeholder:"Lender's Password" %>
   </div>
   <br>
   <% if devise_mapping_lender.rememberable? -%>
@@ -15,6 +15,6 @@
   <% end -%>
   <br>
   <div class="actions">
-    <%= f.submit "Log in", class:"btn btn-success btn-block"%>
+    <%= f.submit "Lender Login", class:"btn btn-primary"%>
   </div>
 <% end %>

@@ -5,77 +5,71 @@
 
   <div class="row">
     <div class="col">
-
+			<br>
 			<img src="http://via.placeholder.com/300x300" alt="">
 			<br>
-<!-- Lender Login Modal Begin -->
-			<!-- Button trigger modal -->
-			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-			    Lender Login
-			  </button>
-
-			  <!-- Modal -->
-			  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <h5 class="modal-title" id="exampleModalLabel"> Lender login </h5>
-			          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			            <span aria-hidden="true">&times;</span>
-			          </button>
-			        </div>
-			        <div class="modal-body">
-
-			          <%= render 'devise/sessions/lender' %>
-
-							</div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
-<!-- Lender Login Modal End -->
+			<br>
+	      <%= render 'devise/sessions/lender' %>
     </div>
 
     <div class="col">
+			<br>
 			<img src="http://via.placeholder.com/300x300" alt="">
 			<br>
-
-<!-- Borrower Login Modal Begin -->
-			<!-- Button trigger modal -->
-			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-			    Borrower Login
-			  </button>
-
-			  <!-- Modal -->
-			  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <h5 class="modal-title" id="exampleModalLabel">Borrower login </h5>
-			          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			            <span aria-hidden="true">&times;</span>
-			          </button>
-			        </div>
-			        <div class="modal-body">
-
-			          <%= render 'devise/sessions/borrower' %>
-
-							</div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
-<!-- Borrower Login Modal End -->
-    </div>
+			<br>
+			<%= render 'devise/sessions/borrower' %>
+		</div>
 	</div>
-	<br>
 
-	<h2>*Don't have an account?
-	<br>
-	<%= link_to 'Sign up here', pages_register_path %>
-	</h2>
+<br>
+
+<hr>
+
+<h2>*Don't have an account?
+<br>
+</h2>
+<!-- Large modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"> Signup</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+			<br>
+			<br>
+			<br>
+
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h1>Signup as </h1>
+						<%= link_to 'Lender', new_lender_registration_path, class:"btn btn-success" %>
+					</div>
+
+<br>
+
+					<div class="col">
+						<h1>Signup as</h1>
+						<%= link_to 'Borrower', new_borrower_registration_path, class:"btn btn-success" %>
+					</div>
+				</div>
+    </div>
+
+		<br>
+		<br>
+		<br>
+
+
+  </div>
 </div>
+
+</div>
+
+<br>
+<hr>
+<br>
+
+<%= link_to "Back", :back, class:"btn btn-outline-primary" %>
+
+<br>
+<br>

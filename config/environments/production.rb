@@ -89,7 +89,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
@@ -99,7 +98,7 @@ Rails.application.configure do
       :port                 => 587,
       :domain               => "mail.google.com",
       :user_name            => "minimoneymarket@gmail.com",
-      :password             => 'hello12345678!',
+      :password             => 'Hello123456789!',
       :authentication       => "login",
       :enable_starttls_auto => true
     }

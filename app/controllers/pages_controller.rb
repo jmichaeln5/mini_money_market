@@ -24,7 +24,7 @@ class PagesController < ApplicationController
 
   def borrower_dash
     @borrower = current_borrower
-    @borrower_columns = Borrower.column_names[0..13] 
+    @borrower_columns = Borrower.column_names[0..13]
   end
 
   def lender_dash

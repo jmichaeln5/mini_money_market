@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @lender = current_lender
 
     if current_lender
-      render 'pages/borrower_dash'
+      render 'pages/lender_dash'
 
     elsif current_borrower
       # redirect_to '/dashboard'

@@ -1,110 +1,42 @@
 <div class="text-center">
 
 <h1>Borrower dash</h1>
-
 <h1> Welcome <%= current_borrower.email %> </h1>
+<%= link_to 'Borrower#Show', borrower_path(@borrower), class:"btn btn-outline-primary" %>
+
+<br>
+<br>
+<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
+<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
+<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
+<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
+<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
+<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
+<%#= @borrower_columns %>
+
+
+<!-- <%= Borrower.column_names[3] %> -->
+<!-- <%= Borrower.column_names[0..13] %> -->
+
+<!-- <%= @borrower_columns %>
+
+
+<%= render 'required_borrower_fields', borrower: @borrower %> -->
+
+<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
+<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
+<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
+<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
+<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
+<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
 
 <hr>
-<br>
-
-
-<%= form_with(model: @borrower, local: true) do |form| %>
-  <% if @borrower.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@borrower.errors.count, "error") %> prohibited this @borrower from being saved:</h2>
-
-      <ul>
-        <% @borrower.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <h1> Required Fields </h1>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :borrower_first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :borrower_last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.number_field :phone, id: :borrower_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street, id: :borrower_street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :borrower_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.number_field :zip, id: :borrower_zip %>
-  </div>
-
-  <div class="field">
-    <%= form.label :company_name %>
-    <%= form.text_field :company_name, id: :borrower_company_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employer_street %>
-    <%= form.text_field :employer_street, id: :borrower_employer_street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employer_state %>
-    <%= form.text_field :employer_state, id: :borrower_employer_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employer_zip %>
-    <%= form.number_field :employer_zip, id: :borrower_employer_zip %>
-  </div>
-
-  <div class="field">
-    <%= form.label :current_position %>
-    <%= form.text_field :current_position, id: :borrower_current_position %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.text_field :start_date, id: :borrower_start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :salary %>
-    <%= form.number_field :salary, id: :borrower_salary %>
-  </div>
-
-  <br>
-
-  <div class="actions">
-    <%= form.submit "Submit", class:"btn btn-primary" %>
-  </div>
-<% end %>
-
-<br>
-<hr>
-<br>
-
 
 <!-- Button trigger modal -->
+<br>
 <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
   Apply for Loan
 </button>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -118,19 +50,30 @@
       <div class="modal-body">
 
         <form>
+          <h1> Salary: </h1>
+          <h3>$<%= @borrower.salary.to_i %></h3>
+        </form>
+
+        <form>
           <h1> Monthly Income: </h1>
-          <input type="text" name="Income"><br>
+          <h3>$<%= @borrower.salary.to_i/12 %></h3>
+          <br>
         </form>
 
         <form action="file">
-          <h1>Add Pay Stub</h1>
+          <h1>Add Pay Stub:</h1>
           <input type="file" name="Pay Stub"><br>
         </form>
 
         <form>
           <h1> Loan Amount: </h1>
-          <input type="text" name="Loan Amount"><br>
-        </form>
+
+          <%= form_with(model: [@borrower, Note.new], local: true) do |form |%>
+            <div class="field">
+              <%= form.label :content, "Loan Amount:" %>
+              <br>
+              <%= form.text_field :content %>
+            </div>
 
         <div>
           <h1>Terms of Service:</h1>
@@ -140,28 +83,28 @@
             </div>
         </div>
 
-
-
       </div>
       <div class="modal-footer">
 
-        <%= link_to "REQUEST LOAN", pages_borrower_step_2_path, class:"btn btn-success btn-block", style:"font-size:200%;" %>
+        <%= form.submit class:"btn btn-primary", class:"btn btn-success btn-block" %>
+        <% end %>
+      </form>
 
-
-
-        <!-- <button type="button" class="btn btn-primary">
-          Submit Request
-          <%= link_to pages_borrower_step_2_path %>
-        </button> -->
-
-      <!-- <div class="button btn-success btn-block">
-        <%= link_to "APPLY FOR LOAN", pages_borrower_step_2_path %>
-      </div> -->
+        <!-- <%= link_to "REQUEST LOAN", pages_borrower_step_2_path, class:"btn btn-success btn-block", style:"font-size:200%;" %> -->
 
       </div>
     </div>
   </div>
 </div>
+<br>
+
+
+<br>
+<hr>
+<br>
+
+
+
 
 <br>
 <br>

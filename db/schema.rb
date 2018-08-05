@@ -16,21 +16,24 @@ ActiveRecord::Schema.define(version: 20180803175323) do
   enable_extension "plpgsql"
 
   create_table "borrowers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "phone"
+    t.bigint "phone"
     t.string "street"
+    t.string "city"
     t.string "state"
     t.integer "zip"
     t.string "company_name"
     t.string "employer_street"
+    t.string "employer_city"
     t.string "employer_state"
     t.integer "employer_zip"
     t.string "current_position"
     t.string "start_date"
     t.integer "salary"
+    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -42,18 +45,18 @@ ActiveRecord::Schema.define(version: 20180803175323) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.index ["email"], name: "index_borrowers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_borrowers_on_reset_password_token", unique: true
   end
 
   create_table "lenders", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "phone"
+    t.bigint "phone"
     t.string "street"
+    t.string "city"
     t.string "state"
     t.integer "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -65,7 +68,6 @@ ActiveRecord::Schema.define(version: 20180803175323) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.index ["email"], name: "index_lenders_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_lenders_on_reset_password_token", unique: true
   end
 
   create_table "notes", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class BorrowersController < ApplicationController
-  before_action :set_borrower, only: [:show, :edit, :update, :destroy]
+  # before_action :set_borrower, only: [:show, :edit, :update, :destroy]
 
   # GET /borrowers
   # GET /borrowers.json
@@ -10,6 +10,7 @@ class BorrowersController < ApplicationController
   # GET /borrowers/1
   # GET /borrowers/1.json
   def show
+    @borrower = Borrower.find(params[:id])
   end
 
   # GET /borrowers/new
@@ -19,6 +20,7 @@ class BorrowersController < ApplicationController
 
   # GET /borrowers/1/edit
   def edit
+    @borrower = Borrower.find(params[:id])
   end
 
   # POST /borrowers
@@ -40,6 +42,8 @@ class BorrowersController < ApplicationController
   # PATCH/PUT /borrowers/1
   # PATCH/PUT /borrowers/1.json
   def update
+    @borrower = Borrower.find(params[:id])
+
     respond_to do |format|
       if @borrower.update(borrower_params)
         format.html { redirect_to @borrower, notice: 'Borrower was successfully updated.' }

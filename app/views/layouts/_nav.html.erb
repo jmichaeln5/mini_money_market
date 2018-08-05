@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Mini Money Market</a>
+  <%= link_to 'Mini Money Market', root_path, class:"navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,57 +9,58 @@
     <% if current_lender %>
 
       <li class="nav-item nav-link">
+          <%= link_to 'Dashboard', pages_lender_dash_path(@lender), class:"nav-link" %>
+      </li>
+
+    <li class="nav-item nav-link">
+        <%= link_to 'Lender#Show', lenderss_path(@lender), class:"nav-link" %>
+    </li>
+
+      <li class="nav-item nav-link">
           <%= link_to 'Lenders', lenders_path, class:"nav-link" %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item nav-link">
           <%= link_to "Borrowers", borrowers_path, class:"nav-link" %>﻿﻿
       </li>
 
-
-      <li class="nav-item">
-          <%= link_to "Login as Lender", new_lender_session_path, class:"nav-link"  %>﻿﻿
-      </li>
-      <li class="nav-item">
-          <%= link_to "Login as Borrower", new_borrower_session_path, class:"nav-link" %>﻿﻿
-      </li>
-
       <li class="nav-item nav-link">
          <%= link_to "Sign out", destroy_lender_session_path, method: :delete, class:"nav-link" %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item nav-link">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
 
-      <% elsif current_borrower %>
+    <% elsif current_borrower %>
+
+      <li class="nav-item nav-link">
+          <%= link_to 'Dashboard', pages_borrower_dash_path(@borrower), class:"nav-link" %>
+      </li>
 
       <li class="nav-item nav-link">
           <%= link_to 'Borrowers', borrowers_path, class:"nav-link" %>
       </li>
 
-      <li class="nav-item">
-          <%= link_to "Login as Lender", new_lender_session_path, class:"nav-link"  %>﻿﻿
-      </li>
-      <li class="nav-item">
-          <%= link_to "Login as Borrower", new_borrower_session_path, class:"nav-link" %>﻿﻿
+      <li class="nav-item nav-link">
+          <%= link_to 'Lenders', lenders_path, class:"nav-link" %>
       </li>
 
       <li class="nav-item nav-link">
-         <%= link_to "Sign out", destroy_lender_session_path, method: :delete, class:"nav-link" %>
+         <%= link_to "Sign out", destroy_borrower_session_path, method: :delete, class:"nav-link" %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item nav-link">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
 
-      <% else %>
+    <% else %>
 
-      <li class="nav-item">
+      <li class="nav-item nav-link">
           <%= link_to "Login", pages_login_path, class:"nav-link" %>﻿﻿
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item nav-link">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
 
@@ -71,10 +72,7 @@
           <%= link_to 'Borrowers', borrowers_path, class:"nav-link" %>
       </li>
 
-
-      <% end %>
-
-
+    <% end %>
 
     </ul>
   </div>

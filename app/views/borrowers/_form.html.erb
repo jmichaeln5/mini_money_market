@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+<h2> Personal Information </h2>
+<hr>
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :borrower_first_name %>
@@ -37,6 +39,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :borrower_city %>
+  </div>
+
+  <div class="field">
     <%= form.label :state %>
     <%= form.text_field :state, id: :borrower_state %>
   </div>
@@ -47,24 +54,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :company_name %>
-    <%= form.text_field :company_name, id: :borrower_company_name %>
+    <%= form.label :bio, "Bio" %>
+    <%= form.text_area :bio, id: :borrower_bio, placeholder:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem expedita consequatur maiores distinctio tempora quisquam unde illum enim reiciendis in, accusantium totam odio facilis, est deserunt sed eum officia hic culpa, quos neque ex, voluptas repudiandae. Similique hic sapiente voluptatum odio, consequatur, delectus sit nemo. Eligendi odio repellendus voluptatem!   "%>
   </div>
 
-  <div class="field">
-    <%= form.label :employer_street %>
-    <%= form.text_field :employer_street, id: :borrower_employer_street %>
-  </div>
 
-  <div class="field">
-    <%= form.label :employer_state %>
-    <%= form.text_field :employer_state, id: :borrower_employer_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employer_zip %>
-    <%= form.number_field :employer_zip, id: :borrower_employer_zip %>
-  </div>
+<hr>
+<h2> Employer Information</h2>
 
   <div class="field">
     <%= form.label :current_position %>
@@ -72,13 +68,26 @@
   </div>
 
   <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :borrower_company_name, placeholder:"Google" %>
+  </div>
+
+  <div class="field">
     <%= form.label :start_date %>
-    <%= form.text_field :start_date, id: :borrower_start_date %>
+    <%= form.text_field :start_date, id: :borrower_start_date, placeholder:"MM/DD/YY" %>
   </div>
 
   <div class="field">
     <%= form.label :salary %>
     <%= form.number_field :salary, id: :borrower_salary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employer_street, "Employer address:" %>
+    <%= form.text_field :employer_street, id: :borrower_employer_street, placeholder:"Street" %>
+    <%= form.text_field :employer_city, id: :borrower_employer_city, placeholder:"City" %>
+    <%= form.text_field :employer_state, id: :borrower_employer_state, placeholder:"State" %>
+    <%= form.number_field :employer_zip, id: :borrower_employer_zip, placeholder:"ZIP" %>
   </div>
 
   <div class="actions">

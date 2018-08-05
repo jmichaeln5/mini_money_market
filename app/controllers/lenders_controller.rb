@@ -10,6 +10,7 @@ class LendersController < ApplicationController
   # GET /lenders/1
   # GET /lenders/1.json
   def show
+    @lender = Lender.find(params[:id])
   end
 
   # GET /lenders/new

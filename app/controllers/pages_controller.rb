@@ -1,9 +1,17 @@
 class PagesController < ApplicationController
+  # before_action :authenticate_borrower! , only: [:borrower_dash]
+  # before_action :authenticate_lender, only: [:lender_dash]
+
   def home
+    @borrower = current_borrower
+    @lender = current_lender
+
     if current_lender
-      redirect_to current_lender
+      render 'pages/borrower_dash'
+
     elsif current_borrower
-      redirect_to current_borrower
+      # redirect_to '/dashboard'
+      render 'pages/borrower_dash'
     end
   end
 
@@ -13,8 +21,10 @@ class PagesController < ApplicationController
   def register
   end
 
+
   def borrower_dash
     @borrower = current_borrower
+    @borrower_columns = Borrower.column_names[0..13] 
   end
 
   def lender_dash

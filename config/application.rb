@@ -17,10 +17,10 @@ module MiniMoneyMarket
 
     ActionMailer::Base.smtp_settings = {
       :address              => "smtp.gmail.com",
-      :port                 => 587,
       :domain               => "mail.google.com",
+      :port                 => 587,
       :user_name            => "minimoneymarket@gmail.com",
-    :password             => 'Hello123456789!',
+      :password             => 'Hello123456789!',
       :authentication       => "login",
       :enable_starttls_auto => true
     }

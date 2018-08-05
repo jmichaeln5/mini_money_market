@@ -3,6 +3,10 @@
 class AddDeviseToBorrowers < ActiveRecord::Migration[5.1]
   def self.up
     change_table :borrowers do |t|
+
+      ## Adding Additional Attributes
+      t.string :first_name,         null: false, default: ""
+      t.string :last_name,          null: false, default: ""
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -38,9 +42,9 @@ class AddDeviseToBorrowers < ActiveRecord::Migration[5.1]
     end
 
     add_index :borrowers, :email,                unique: true
-    add_index :borrowers, :reset_password_token, unique: true
-    add_index :borrowers, :confirmation_token,   unique: true
-    add_index :borrowers, :unlock_token,         unique: true
+    # add_index :borrowers, :reset_password_token, unique: true
+    # add_index :borrowers, :confirmation_token,   unique: true
+    # add_index :borrowers, :unlock_token,         unique: true
   end
 
   def self.down

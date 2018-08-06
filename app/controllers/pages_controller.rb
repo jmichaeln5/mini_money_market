@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 
   def home
     @borrower = current_borrower
+    @borrowers = Borrower.all
+
     @lender = current_lender
 
     if current_lender
@@ -24,11 +26,16 @@ class PagesController < ApplicationController
 
   def borrower_dash
     @borrower = current_borrower
-    @borrower_columns = Borrower.column_names[0..13]
+    @borrowers = Borrower.all
+    # @empty_column = @borrower.borrower_columns[0].blank?
+
+
   end
 
   def lender_dash
     @lender = current_lender
+    @lender_columns = Lender.column_names[1..13]
+
   end
 
   def borrower_step_2

@@ -1,117 +1,169 @@
 <div class="text-center">
 
-<h1>Borrower dash</h1>
-<h1> Welcome <%= current_borrower.email %> </h1>
-<%= link_to 'Borrower#Show', borrower_path(@borrower), class:"btn btn-outline-primary" %>
-
-<br>
-<br>
-<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
-<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
-<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
-<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
-<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
-<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
-<%#= @borrower_columns %>
+<div class="container">
+<h1>
+  Borrower dash
+</h1>
 
 
-<!-- <%= Borrower.column_names[3] %> -->
-<!-- <%= Borrower.column_names[0..13] %> -->
+<h1>
+<% if @borrower.first_name.blank? || @borrower.last_name.blank? %>
+      Welcome <%= current_borrower.email %>
+<% else %>
+     Welcome <%= @borrower.full_name %>
+<% end %>
+</h1>
 
-<!-- <%= @borrower_columns %>
 
 
-<%= render 'required_borrower_fields', borrower: @borrower %> -->
-
-<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
-<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
-<!-- ******************* Check pages_controller borrower_dash for self method!!  -->
-<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
-<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
-<!-- ******  SHOWS MISSING FIELDS IF ANY ******  -->
-
-<hr>
-
-<!-- Button trigger modal -->
-<br>
-<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
-  Apply for Loan
-</button>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel"> Apply for Loan </h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <form>
-          <h1> Salary: </h1>
-          <h3>$<%= @borrower.salary.to_i %></h3>
-        </form>
-
-        <form>
-          <h1> Monthly Income: </h1>
-          <h3>$<%= @borrower.salary.to_i/12 %></h3>
-          <br>
-        </form>
-
-        <form action="file">
-          <h1>Add Pay Stub:</h1>
-          <input type="file" name="Pay Stub"><br>
-        </form>
-
-        <form>
-          <h1> Loan Amount: </h1>
-
-          <%= form_with(model: [@borrower, Note.new], local: true) do |form |%>
-            <div class="field">
-              <%= form.label :content, "Loan Amount:" %>
-              <br>
-              <%= form.text_field :content %>
-            </div>
-
-        <div>
-          <h1>Terms of Service:</h1>
-            <div class="text-muted" style="height:120px;width:100%; border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime, ut ab quod, beatae cupiditate voluptates, praesentium quisquam eos aliquam unde odit velit temporibus dignissimos, modi obcaecati ad aspernatur itaque voluptatibus! Ut ex alias voluptas molestiae, quidem vitae laudantium laborum reiciendis illo reprehenderit repellat in perferendis, commodi modi dolores beatae eos voluptatem architecto. Earum voluptatum quasi amet voluptas quis, repellendus dolor explicabo non similique ducimus asperiores, nobis esse, molestiae laboriosam? Consectetur tempora, quasi obcaecati beatae. Molestiae quaerat debitis omnis tempora inventore sapiente, alias nihil fugit in, pariatur commodi perferendis, dicta labore culpa libero, saepe voluptas maxime illum quos et. Laudantium.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam enim fuga numquam veniam velit, tenetur expedita praesentium tempore adipisci unde itaque possimus delectus culpa eius rerum esse asperiores excepturi neque rem distinctio nobis. Ut provident beatae magnam consequatur earum veniam veritatis eos non, aperiam possimus deserunt, culpa, pariatur, nostrum ipsa qui! Incidunt earum distinctio rem sunt totam molestias maiores cum placeat at odio possimus temporibus cupiditate dolore, repellat, eaque eligendi quaerat ad officia ullam, illum. Culpa sit quos obcaecati facilis ab, tempora, ipsum minus vel velit, est dolore at atque non sequi. Quae ipsum, excepturi dolorem libero magnam deserunt a.
-            </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-
-        <%= form.submit class:"btn btn-primary", class:"btn btn-success btn-block" %>
-        <% end %>
-      </form>
-
-        <!-- <%= link_to "REQUEST LOAN", pages_borrower_step_2_path, class:"btn btn-success btn-block", style:"font-size:200%;" %> -->
-
-      </div>
-    </div>
-  </div>
+<%= link_to 'View My Profile', borrower_path(@borrower), class:"btn btn-outline-primary" %>
+<%= link_to 'Edit My Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
 </div>
-<br>
 
+<br>
+<br>
+<hr>
+
+ <% if
+   @borrower.street.present? &&
+   @borrower.phone.present? &&
+   @borrower.zip.present? &&
+   @borrower.company_name.present? &&
+   @borrower.employer_street.present? &&
+   @borrower.employer_state.present? &&
+   @borrower.employer_zip.present? &&
+   @borrower.current_position.present? &&
+   @borrower.start_date.present? &&
+   @borrower.salary.present?
+ %>
+
+ <!-- Button trigger modal -->
+ <br>
+ <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+   Apply for Loan
+ </button>
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+
+       <div class="modal-header">
+         <h1 class="modal-title" id="exampleModalLabel"> Apply for Loan </h1>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+
+         <form>
+           <h1> Salary: </h1>
+           <h3>$<%= @borrower.salary.to_i %></h3>
+         </form>
+
+         <form>
+           <h1> Monthly Income: </h1>
+           <h3>$<%= @borrower.salary.to_i/12 %></h3>
+           <br>
+         </form>
+
+         <form action="file">
+           <h1>Add Pay Stub:</h1>
+           <input type="file" name="Pay Stub"><br>
+         </form>
+
+         <form>
+           <h1> Loan Amount: </h1>
+
+         <div>
+           <h1>Terms of Service:</h1>
+             <div class="text-muted" style="height:120px;width:100%; border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime, ut ab quod, beatae cupiditate voluptates, praesentium quisquam eos aliquam unde odit velit temporibus dignissimos, modi obcaecati ad aspernatur itaque voluptatibus! Ut ex alias voluptas molestiae, quidem vitae laudantium laborum reiciendis illo reprehenderit repellat in perferendis, commodi modi dolores beatae eos voluptatem architecto. Earum voluptatum quasi amet voluptas quis, repellendus dolor explicabo non similique ducimus asperiores, nobis esse, molestiae laboriosam? Consectetur tempora, quasi obcaecati beatae. Molestiae quaerat debitis omnis tempora inventore sapiente, alias nihil fugit in, pariatur commodi perferendis, dicta labore culpa libero, saepe voluptas maxime illum quos et. Laudantium.
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam enim fuga numquam veniam velit, tenetur expedita praesentium tempore adipisci unde itaque possimus delectus culpa eius rerum esse asperiores excepturi neque rem distinctio nobis. Ut provident beatae magnam consequatur earum veniam veritatis eos non, aperiam possimus deserunt, culpa, pariatur, nostrum ipsa qui! Incidunt earum distinctio rem sunt totam molestias maiores cum placeat at odio possimus temporibus cupiditate dolore, repellat, eaque eligendi quaerat ad officia ullam, illum. Culpa sit quos obcaecati facilis ab, tempora, ipsum minus vel velit, est dolore at atque non sequi. Quae ipsum, excepturi dolorem libero magnam deserunt a.
+             </div>
+         </div>
+
+         <br>
+         <%= render partial: "notes/form", locals: {notable: @borrower}  %>
+
+       </form>
+       <br>
+
+
+       </div>
+       </div>
+     </div>
+   </div>
+
+
+ <% else %>
+
+
+       <br>
+
+           <h3> Sorry, you are not eligible for a loan at this time. </h3>
+
+           <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
+             Apply for Loan
+           </button>
+
+           <!-- Modal -->
+           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog" role="document">
+               <div class="modal-content">
+
+                 <br>
+                 <br>
+
+                 <%= render 'required_borrower_fields' %>
+
+                 <br>
+                 <br>
+
+               </div>
+             </div>
+           </div>
+
+ <!-- end to if statement -->
+ <% end %>
 
 <br>
 <hr>
+
+<h1>Personal Info</h1>
+<%= show_non_blank_field "Borrower:", @borrower.full_name %>
+<%= show_non_blank_field "Phone:", @borrower.phone %>
+<%= show_non_blank_field "Email:", @borrower.email %>
+<%= show_non_blank_field "Address:", @borrower.full_address %>
+<%= show_non_blank_field "Company",@borrower.company_name %>
+
+<%= show_non_blank_field "Short Bio",@borrower.bio %>
+
+<hr>
+
+<h2>Employer Info</h2>
+<%= show_non_blank_field "Current Role:" ,@borrower.current_position %>
+<%= show_non_blank_field "Start Date:" ,@borrower.start_date %>
+<%= show_non_blank_field "Salary:" ,@borrower.salary %>
+<%= show_non_blank_field "Company Address:" ,@borrower.company_address %>
+
+   <!--
+   @borrower.street.present? &&
+   @borrower.phone.present? &&
+   @borrower.zip.present? &&
+   @borrower.company_name.present? &&
+   @borrower.employer_street.present? &&
+   @borrower.employer_state.present? &&
+   @borrower.employer_zip.present? &&
+   @borrower.current_position.present? &&
+   @borrower.start_date.present? &&
+   @borrower.salary.present?
+    -->
+
 <br>
-
-
-
-
 <br>
-<br>
-<br>
-<br>
+<hr>
 
-
+<%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
 
 
 </div>

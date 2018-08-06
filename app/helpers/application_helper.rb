@@ -24,4 +24,12 @@ module ApplicationHelper
   def devise_mapping_borrower
     @devise_mapping ||= Devise.mappings[:borrower]
   end
+
+
+
+	def borrower_columns
+		Borrower.column_names[1..30]
+	end
+
+
 end

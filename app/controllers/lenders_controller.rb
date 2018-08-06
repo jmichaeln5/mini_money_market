@@ -20,6 +20,7 @@ class LendersController < ApplicationController
 
   # GET /lenders/1/edit
   def edit
+    @lender= Lender.find(params[:id])
   end
 
   # POST /lenders
@@ -41,6 +42,9 @@ class LendersController < ApplicationController
   # PATCH/PUT /lenders/1
   # PATCH/PUT /lenders/1.json
   def update
+
+    @lender= Lender.find(params[:id])
+
     respond_to do |format|
       if @lender.update(lender_params)
         format.html { redirect_to @lender, notice: 'Lender was successfully updated.' }

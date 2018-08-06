@@ -1,29 +1,29 @@
 <div class="text-center">
 
-<h1>  <%= @borrower.first_name %> <%= @borrower.last_name%> </h1>
+  <h1>
+  <% if @borrower.first_name.blank? || @borrower.last_name.blank? %>
+      <%= @borrower.email %>'s Public Profile
+     <% else %>
+       <%= @borrower.full_name %>'s Public Profile
+     <% end %>
+  </h1>
 
 <% if current_borrower = @borrower %>
-<br>
-<hr>
-
-<%= link_to 'Edit Your Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
-<hr>
-<br>
+<br><hr>
+<%= link_to 'Edit My Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
+<hr><br>
 <% end  %>
 
 <!--  -->
 <!--  -->
-<%= show_non_blank_field "Name", @borrower.full_name %>
-<%= show_non_blank_field "current_position", @borrower.current_position %>
-
+<%= show_non_blank_field "Borrower:", @borrower.full_name %>
+<%= show_non_blank_field "Current Position:", @borrower.current_position %>
+<%= show_non_blank_field "Company:", @borrower.company_name %>
 <%= show_non_blank_field "Phone:", @borrower.phone %>
-<%= show_non_blank_field "Email", @borrower.email %>
-<%#= show_non_blank_field "full_address", @borrower.full_address %>
-<%= show_non_blank_field "company_name", @borrower.company_name %>
-<%#= show_non_blank_field "company_address", @borrower.company_address %>
-<%#= show_non_blank_field "email", @borrower.city %>
-<%= show_non_blank_field "State", @borrower.state %>
-<%#= show_non_blank_field "email", @borrower.bio %>
+<%= show_non_blank_field "Email:", @borrower.email %>
+<%= show_non_blank_field "Address:", @borrower.full_address %>
+<br>
+<%= show_non_blank_field "Bio", @borrower.bio %>
 
 <!--  -->
 <!--  -->
@@ -34,10 +34,10 @@
 <%= render partial: "notes/form", locals: {notable: @borrower}  %>
 
 <br>
+<hr>
+<br>
 
 <%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
-
-
 
 
 

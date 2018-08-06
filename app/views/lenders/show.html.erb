@@ -1,44 +1,33 @@
-<p>
-  <strong>First name:</strong>
-  <%= @lender.first_name %>
-</p>
+<div class="text-center">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @lender.last_name %>
-</p>
+<h1>
+<% if @lender.first_name.blank? || @lender.last_name.blank? %>
+    <%= @lender.email %>'s Public Profile
+   <% else %>
+     <%= @lender.full_name %>'s Public Profile
+   <% end %>
+</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @lender.email %>
-</p>
+<% if current_lender = @lender %>
+  <br><hr>
+  <%= link_to 'Edit Your Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
+  <hr><br>
+<% end  %>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @lender.phone %>
-</p>
+<%= show_non_blank_field "Lender:", @lender.full_name %>
+<%= show_non_blank_field "Phone:", @lender.phone %>
+<%= show_non_blank_field "Email:", @lender.email %>
 
-<p>
-  <strong>Street:</strong>
-  <%= @lender.street %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @lender.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @lender.zip %>
-</p>
-
+<hr>
 
 <%= render partial: "notes/notes", locals: {notable: @lender}  %>
 <%= render partial: "notes/form", locals: {notable: @lender}  %>
 
 
+<br>
+<hr>
+<br>
 
+<%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
 
-<%= link_to 'Edit', edit_lender_path(@lender) %> |
-<%= link_to 'Back', lenders_path %>
+</div>

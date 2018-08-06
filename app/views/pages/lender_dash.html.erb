@@ -1,9 +1,42 @@
 <div class="text-center">
-<h1>Investor Dash</h1>
-<h2> Welcome <%= current_lender.email %> </h2>
+
+<div class="container">
+<h1>
+  Lender dash
+</h1>
+
+
+<h1>
+<% if @lender.first_name.blank? || @lender.last_name.blank? %>
+      Welcome <%= current_lender.email %>
+<% else %>
+     Welcome <%= @lender.full_name %>
+<% end %>
+</h1>
+
+<%= render partial: "notes/notes", locals: {notable: @lender}  %>
 
 
 
+<%= link_to 'View My Profile', lender_path(@lender), class:"btn btn-outline-primary" %>
+<%= link_to 'Edit My Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
+</div>
+
+<br>
+
+<br>
+<hr>
+
+<% if
+  @lender.street.present? &&
+  @lender.phone.present? &&
+  @lender.zip.present? &&
+  @lender.street.present? &&
+  @lender.state.present? &&
+  @lender.zip.present? &&
+%>
+
+<br>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
   Make a Deposit
@@ -20,61 +53,84 @@
         </button>
       </div>
       <div class="modal-body">
-<!--  -->
-<!--  -->
-<!--  -->
 
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-primary btn-block"> Connect to bank </button>
-</div>
-
-
-<!--  -->
-<!--  -->
-<!--  -->
-        <form>
-          <h1> Deposit Amount: </h1>
-          <input type="text" name="Income"><br>
-        </form>
+      <div class="modal-footer">
+        <br>
+        <button type="button" class="btn btn-outline-primary btn-block"> Connect to bank </button>
+      </div>
 
         <form>
-          <h1> Employer Name: </h1>
-          <input type="text" name="Employer Name"><br>
-        </form>
-
-        <form>
-          <h1> Employer Address: </h1>
-          <input type="text" name="Employer Addrress"><br>
-        </form>
-
-
-
-        <div>
           <h1>Terms of Service:</h1>
             <div class="text-muted" style="height:120px;width:100%; border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime, ut ab quod, beatae cupiditate voluptates, praesentium quisquam eos aliquam unde odit velit temporibus dignissimos, modi obcaecati ad aspernatur itaque voluptatibus! Ut ex alias voluptas molestiae, quidem vitae laudantium laborum reiciendis illo reprehenderit repellat in perferendis, commodi modi dolores beatae eos voluptatem architecto. Earum voluptatum quasi amet voluptas quis, repellendus dolor explicabo non similique ducimus asperiores, nobis esse, molestiae laboriosam? Consectetur tempora, quasi obcaecati beatae. Molestiae quaerat debitis omnis tempora inventore sapiente, alias nihil fugit in, pariatur commodi perferendis, dicta labore culpa libero, saepe voluptas maxime illum quos et. Laudantium.
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nobis recusandae distinctio, ea fugit eligendi esse porro doloribus at hic numquam, voluptatem, beatae vel a illo dicta quos placeat, natus similique explicabo repudiandae. Expedita harum, doloribus voluptatibus perspiciatis! Iure, vitae quod quia nesciunt quasi, iste tempora aut qui consequuntur, atque alias consectetur repudiandae nisi ab voluptates veritatis debitis enim amet odit sit accusamus neque quidem! Tenetur voluptas eaque ipsam reprehenderit consequuntur maiores quas earum rem quos temporibus consectetur ratione expedita eum vero architecto, amet quisquam blanditiis eos aliquid cupiditate! Fugiat aut doloribus doloremque, iure mollitia et temporibus dolorum sequi sint.
             </div>
-        </div>
+
+        <h1> Investment Amount: </h1>
+
+        <%= render partial: "notes/form", locals: {notable: @lender}  %>
 
       </div>
 
-      <div class="container">
-        <%= link_to "MAKE DEPOSIT", pages_lender_step_2_path, class:"btn btn-success btn-block" %>
+      </form>
       </div>
 
-      <br>
 
-      <div class="container">
-      <button type="button" class="btn btn-outline-secondary " data-dismiss="modal">
-        Close
-      </button>
-      </div>
 
       <br>
 
     </div>
   </div>
-</div>
+
+<% else %>
+
+
+
+<br>
+
+    <h3> Sorry, you are not eligible for a loan at this time. </h3>
+
+    <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
+      Apply for Loan
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <br>
+          <br>
+
+          <%= render 'required_lender_fields', lender: @lender %>
+
+          <br>
+          <br>
+
+        </div>
+      </div>
+    </div>
+
+<br>
+
+<% end %>
+
+<br>
+<hr>
+
+<h1>Personal Info</h1>
+<%= show_non_blank_field "Lender:", @lender.full_name %>
+<%= show_non_blank_field "Phone:", @lender.phone %>
+<%= show_non_blank_field "Email:", @lender.email %>
+<%= show_non_blank_field "Address:", @lender.full_address %>
+<%= show_non_blank_field "Short Bio",@lender.full_address %>
+
+
+<br>
+<hr>
+<br>
+
+<%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
+
 
 </div>

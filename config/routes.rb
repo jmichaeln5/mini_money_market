@@ -18,8 +18,10 @@ Rails.application.routes.draw do
   get 'pages/lender_step_2'
 
   # devise_for :lenders, controllers: { registrations: "registrations" }
-  devise_for :lenders
-  devise_for :borrowers, controllers: { registrations: "registrations" }
+  devise_for :lenders, controllers: { lenders_registrations: "registrations" }
+  # devise_for :borrowers, controllers: { registrations: "registrations" }
+  devise_for :borrowers, controllers: { borrowers_registrations: "borrowersregistrations" } # broken... Make new file for old RegistrationsController with borrowers methods and path in line above
+
   # devise_for :borrowers, controllers: { borrowers: "borrowers" }
 
   resources :borrowers do

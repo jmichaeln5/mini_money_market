@@ -29,7 +29,7 @@
         <td></td>
         <td></td>
 
-        <td><%= borrower.current_position %> at <%= borrower.company_name %> </td>
+        <td><%= borrower.current_position %>  <%= borrower.company_name %> </td>
         <td></td>
         <td></td>
 
@@ -46,8 +46,8 @@
         <td></td>
 
         <td><%= link_to 'Show', borrower %></td>
-        <td><%= link_to 'Edit', edit_borrower_path(borrower) %></td>
-        <td><%= link_to 'Destroy', borrower, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Edit', edit_borrower_path(borrower) %></td>
+        <td><%= link_to 'Destroy', borrower, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -55,4 +55,4 @@
 
 <br>
 
-<%= link_to 'New Borrower', new_borrower_path %>
+<!-- <%= link_to 'New Borrower', new_borrower_path %> -->

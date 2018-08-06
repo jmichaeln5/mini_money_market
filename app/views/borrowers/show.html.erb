@@ -19,9 +19,7 @@
 <%= show_non_blank_field "Borrower:", @borrower.full_name %>
 <%= show_non_blank_field "Current Position:", @borrower.current_position %>
 <%= show_non_blank_field "Company:", @borrower.company_name %>
-<%= show_non_blank_field "Phone:", @borrower.phone %>
 <%= show_non_blank_field "Email:", @borrower.email %>
-<%= show_non_blank_field "Address:", @borrower.full_address %>
 <br>
 <%= show_non_blank_field "Bio", @borrower.bio %>
 
@@ -29,11 +27,11 @@
 <!--  -->
 
 
-<hr>
+<!-- <hr>
 <%= render partial: "notes/notes", locals: {notable: @borrower}  %>
 <%= render partial: "notes/form", locals: {notable: @borrower}  %>
 
-<br>
+<br> -->
 <hr>
 <br>
 

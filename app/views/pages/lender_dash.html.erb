@@ -14,7 +14,7 @@
 <% end %>
 </h1>
 
-<%= render partial: "notes/notes", locals: {notable: @lender}  %>
+<!-- <%= render partial: "notes/notes", locals: {notable: @lender}  %> -->
 
 
 
@@ -88,10 +88,10 @@
 
 <br>
 
-    <h3> Sorry, you are not eligible for a loan at this time. </h3>
+    <h3> Sorry, you are not eligible to invest at this time. </h3>
 
     <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
-      Apply for Loan
+      Invest Now
     </button>
 
     <!-- Modal -->
@@ -122,8 +122,6 @@
 <%= show_non_blank_field "Lender:", @lender.full_name %>
 <%= show_non_blank_field "Phone:", @lender.phone %>
 <%= show_non_blank_field "Email:", @lender.email %>
-<%= show_non_blank_field "Address:", @lender.full_address %>
-<%= show_non_blank_field "Short Bio",@lender.full_address %>
 
 
 <br>

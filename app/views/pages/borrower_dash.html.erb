@@ -5,22 +5,32 @@
   Borrower dash
 </h1>
 
-
 <h1>
-<% if @borrower.first_name.blank? || @borrower.last_name.blank? %>
-      Welcome <%= current_borrower.email %>
-<% else %>
-     Welcome <%= @borrower.full_name %>
-<% end %>
+  <% if @borrower.first_name.blank? || @borrower.last_name.blank? %>
+        Welcome <%= current_borrower.email %>
+  <% else %>
+       Welcome <%= @borrower.full_name %>
+  <% end %>
 </h1>
-
-
 
 <%= link_to 'View My Profile', borrower_path(@borrower), class:"btn btn-outline-primary" %>
 <%= link_to 'Edit My Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
 </div>
 
 <br>
+
+<%#= render partial: "notes/notes", locals: {notable: @borrower}  %>
+
+<%# @borrower.notes.each do |note| %>
+<% current_borrower.notes.each do |note| %>
+  <p>
+    <%= note.content %>
+  </p>
+
+<% end %>
+
+
+
 <br>
 <hr>
 
@@ -83,20 +93,29 @@
          </div>
 
          <br>
-         <%= render partial: "notes/form", locals: {notable: @borrower}  %>
 
+         <%#= render partial: "notes/form", locals: {notable: @borrower}  %>
+         <%#= render partial: "notes/form", locals: {notable: @borrower.find(noteable)}  %>
+         <%#= render partial: "notes/form", locals: {notable: @borrower.find(noteable)}  %>
+
+
+         <%= form_with(model: [@borrower, Note.new], local: true) do |form |%>
+           <div class="field">
+             <%= form.label :content, "Amount:" %>
+             <br>
+             <%= form.text_field :content %>
+           </div>
+         <br>
+             <%= form.submit "Submit", class:"btn btn-primary" %>
+         <% end %>
        </form>
        <br>
-
-
        </div>
        </div>
      </div>
    </div>
 
-
  <% else %>
-
 
        <br>
 
@@ -133,7 +152,6 @@
 <%= show_non_blank_field "Borrower:", @borrower.full_name %>
 <%= show_non_blank_field "Phone:", @borrower.phone %>
 <%= show_non_blank_field "Email:", @borrower.email %>
-<%= show_non_blank_field "Address:", @borrower.full_address %>
 <%= show_non_blank_field "Company",@borrower.company_name %>
 
 <%= show_non_blank_field "Short Bio",@borrower.bio %>
@@ -144,7 +162,6 @@
 <%= show_non_blank_field "Current Role:" ,@borrower.current_position %>
 <%= show_non_blank_field "Start Date:" ,@borrower.start_date %>
 <%= show_non_blank_field "Salary:" ,@borrower.salary %>
-<%= show_non_blank_field "Company Address:" ,@borrower.company_address %>
 
    <!--
    @borrower.street.present? &&

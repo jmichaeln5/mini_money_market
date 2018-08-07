@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get 'pages/borrower_dash'
   get 'pages/lender_dash'
 
-
   get 'pages/borrower_step_2'
   get 'pages/lender_step_2'
 
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
   end
   # resources :notes, only: [:show, :edit, :update, :destroy]
 
+  resources :notes
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

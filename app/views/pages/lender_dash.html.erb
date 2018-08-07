@@ -1,20 +1,20 @@
 <div class="text-center">
 
 <div class="container">
+
 <h1>
   Lender dash
 </h1>
 
-
-<h1>
 <% if @lender.first_name.blank? || @lender.last_name.blank? %>
+    <h1>
       Welcome <%= current_lender.email %>
 <% else %>
      Welcome <%= @lender.full_name %>
+   </h1>
 <% end %>
-</h1>
 
-<!-- <%= render partial: "notes/notes", locals: {notable: @lender}  %> -->
+<!-- <%#= render partial: "notes/notes", locals: {notable: @lender}  %> -->
 
 
 
@@ -22,9 +22,6 @@
 <%= link_to 'Edit My Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
 </div>
 
-<br>
-
-<br>
 <hr>
 
 <% if

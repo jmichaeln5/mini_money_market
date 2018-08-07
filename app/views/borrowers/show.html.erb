@@ -8,7 +8,7 @@
      <% end %>
   </h1>
 
-<% if current_borrower = @borrower %>
+<% if Borrower.find(params[:id]) == @borrower.id %>
 <br><hr>
 <%= link_to 'Edit My Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
 <hr><br>
@@ -27,11 +27,10 @@
 <!--  -->
 
 
-<!-- <hr>
-<%= render partial: "notes/notes", locals: {notable: @borrower}  %>
-<%= render partial: "notes/form", locals: {notable: @borrower}  %>
+<!-- <hr> -->
+<%#= render partial: "notes/notes", locals: {notable: @borrower}  %>
+<%#= render partial: "notes/form", locals: {notable: @borrower}  %>
 
-<br> -->
 <hr>
 <br>
 

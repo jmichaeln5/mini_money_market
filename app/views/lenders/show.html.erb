@@ -8,26 +8,27 @@
    <% end %>
 </h1>
 
-<% if current_lender = @lender %>
-  <br><hr>
-  <%= link_to 'Edit Your Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
-  <hr><br>
+<% if Lender.find(params[:id]) == @lender.id %>
+<br><hr>
+<%= link_to 'Edit My Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
+<hr><br>
 <% end  %>
+
 
 <%= show_non_blank_field "Lender:", @lender.full_name %>
 <%= show_non_blank_field "Phone:", @lender.phone %>
 <%= show_non_blank_field "Email:", @lender.email %>
 
-<hr>
+<!-- <hr> -->
 
-<!-- <%= render partial: "notes/notes", locals: {notable: @lender}  %>
-<%= render partial: "notes/form", locals: {notable: @lender}  %> -->
+<%#= render partial: "notes/notes", locals: {notable: @lender}  %>
+<%#= render partial: "notes/form", locals: {notable: @lender}  %>
 
 
 <br>
 <hr>
 <br>
 
-<%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
+<%= link_to 'Back', :back , class:"btn btn-outline-primary" %>
 
 </div>

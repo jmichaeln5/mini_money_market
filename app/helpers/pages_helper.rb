@@ -1,6 +1,5 @@
 module PagesHelper
 
-
   def show_non_blank_field(label, value)
     # "#{label} #{h value}""<br>".html_safe if !value.blank?
     "#{label} #{h value}""<br>".html_safe if value.present?

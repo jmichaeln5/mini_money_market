@@ -21,14 +21,18 @@
 
 <%#= render partial: "notes/notes", locals: {notable: @borrower}  %>
 
-<%# @borrower.notes.each do |note| %>
-<% current_borrower.notes.each do |note| %>
-  <p>
-    <%= note.content %>
-  </p>
 
-<% end %>
+<%# current_borrower.notes.each do |note| %>
+<%#=  Borrower.column_names[1..30] do |column| %>
+<%# end %>
+<%# end %>
 
+
+<!-- <%= @borrowers.map {|model| model.attributes.slice(:id, :first_name)} %>
+<br>
+<%= @borrowers.map { |model| model.attributes.slice[0] } %> -->
+<%#= @borrowers.map {|model| model.attributes.slice(:email)} %>
+<%#= Borrower.cloumn_names[1..30].map { |model| model.attributes } %>
 
 
 <br>

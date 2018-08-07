@@ -23,12 +23,10 @@ class PagesController < ApplicationController
   def register
   end
 
-
   def borrower_dash
     @borrower = current_borrower
     @borrowers = Borrower.all
     # @empty_column = @borrower.borrower_columns[0].blank?
-
 
   end
 

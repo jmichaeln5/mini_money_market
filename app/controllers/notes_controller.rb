@@ -12,6 +12,10 @@ class NotesController < ApplicationController
     # redirect_to pages_borrower_step_2_path, notice: "Your note has been requested."
   end
 
+  def index
+
+  end
+
 
   private
 

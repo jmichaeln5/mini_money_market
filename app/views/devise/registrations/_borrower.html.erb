@@ -8,16 +8,6 @@
     <% end %>
 
       <div class="field">
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name, id: :borrower_first_name %>
-      </div>
-
-      <div class="field">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name, id: :borrower_last_name %>
-      </div>
-
-      <div class="field">
         <%= form.label :email %>
         <%= form.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email"%>
       </div>

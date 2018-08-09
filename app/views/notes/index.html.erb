@@ -1,8 +1,24 @@
-<h1> Notes index </h1>
+<div class="text-center">
 
-<%= Note.each do |note| %>
-  <p>
-    <%= note.content %>
-  </p>
+<h1> Loans </h1>
+<br>
 
-<% end %>
+
+
+<div class="card">
+        <div class="card-body">
+            <h2 class="card-title"> Sum of Loans Requested</h2>
+<hr>
+            <% @start_amount = 0 %>
+            <% @empty_arr = [] %>
+            <% @notes.each do |note| %>
+              <% @empty_arr.push note[:content].to_i %>
+              <%  @sum_array = @empty_arr.inject(0){|start_amount, x| start_amount + x } %>
+            <% end %>
+
+             <h2 class="card-text"> $<%= @sum_array %> </h2>
+
+     </div>
+ </div>
+
+</div>

@@ -9,7 +9,15 @@
     <% if current_lender %>
 
     <li class="nav-item nav-link">
+        <%= link_to 'Home', root_path, class:"nav-link" %>
+    </li>
+
+    <li class="nav-item nav-link">
         <%= link_to 'Dashboard', pages_lender_dash_path(@lender), class:"nav-link" %>
+    </li>
+
+    <li class="nav-item nav-link">
+        <%= link_to "Loans", notes_path, class:"nav-link" %>﻿﻿
     </li>
 
     <!-- <li class="nav-item nav-link">
@@ -20,9 +28,9 @@
           <%= link_to 'Lenders', lenders_path, class:"nav-link" %>
       </li> -->
 
-      <li class="nav-item nav-link">
+      <!-- <li class="nav-item nav-link">
           <%= link_to "Borrowers", borrowers_path, class:"nav-link" %>﻿﻿
-      </li>
+      </li> -->
 
       <li class="nav-item nav-link">
          <%= link_to "Sign out", destroy_lender_session_path, method: :delete, class:"nav-link" %>
@@ -33,6 +41,11 @@
       </li> -->
 
     <% elsif current_borrower %>
+
+    <li class="nav-item nav-link">
+        <%= link_to 'Home', root_path, class:"nav-link" %>
+    </li>
+
 
       <li class="nav-item nav-link">
           <%= link_to 'Dashboard', pages_borrower_dash_path(@borrower), class:"nav-link" %>
@@ -56,6 +69,10 @@
 
     <% else %>
 
+    <li class="nav-item nav-link">
+        <%= link_to 'Home', root_path, class:"nav-link" %>
+    </li>
+
       <li class="nav-item nav-link">
           <%= link_to "Login", pages_login_path, class:"nav-link" %>﻿﻿
       </li>
@@ -71,6 +88,7 @@
       <li class="nav-item nav-link">
           <%= link_to 'Borrowers', borrowers_path, class:"nav-link" %>
       </li> -->
+
 
     <% end %>
 

@@ -18,6 +18,8 @@ class CreateBorrowers < ActiveRecord::Migration[5.1]
       t.string :start_date
       t.integer :salary
       t.text :bio
+      # t.integer :notable_id
+      # t.string  :notable_type
 
       t.timestamps
     end

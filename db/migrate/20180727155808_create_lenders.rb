@@ -9,6 +9,8 @@ class CreateLenders < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :state
       t.integer :zip
+      # t.integer :notable_id
+      # t.string  :notable_type
 
       t.timestamps
     end

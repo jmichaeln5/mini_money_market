@@ -14,8 +14,15 @@ class NotesController < ApplicationController
 
   def index
 
+    @lenders = Lender.all
+    @borrowers = Borrower.all
+    @notes = Note.all.to_a
+
   end
 
+  def destroy
+    # @note.notable.destroy
+  end
 
   private
 

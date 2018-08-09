@@ -2,9 +2,9 @@
 
   <h1>
   <% if @borrower.first_name.blank? || @borrower.last_name.blank? %>
-      <%= @borrower.email %>'s Public Profile
+      Welcome <%= @borrower.email %>
      <% else %>
-       <%= @borrower.full_name %>'s Public Profile
+      Welcome <%= @borrower.full_name %>
      <% end %>
   </h1>
 
@@ -14,18 +14,12 @@
 <hr><br>
 <% end  %>
 
-<!--  -->
-<!--  -->
 <%= show_non_blank_field "Borrower:", @borrower.full_name %>
 <%= show_non_blank_field "Current Position:", @borrower.current_position %>
 <%= show_non_blank_field "Company:", @borrower.company_name %>
 <%= show_non_blank_field "Email:", @borrower.email %>
 <br>
 <%= show_non_blank_field "Bio", @borrower.bio %>
-
-<!--  -->
-<!--  -->
-
 
 <!-- <hr> -->
 <%#= render partial: "notes/notes", locals: {notable: @borrower}  %>

@@ -11,6 +11,7 @@ class BorrowersController < ApplicationController
   # GET /borrowers/1.json
   def show
     @borrower = Borrower.find(params[:id])
+    # @borrower = current_borrower
   end
 
   # GET /borrowers/new
@@ -46,8 +47,8 @@ class BorrowersController < ApplicationController
 
     respond_to do |format|
       if @borrower.update(borrower_params)
-        format.html { redirect_to @borrower, notice: 'Borrower was successfully updated.' }
-        format.json { render :show, status: :ok, location: @borrower }
+        format.html { redirect_to pages_borrower_dash_path, notice: 'Borrower was successfully updated.' }
+        format.json { render :show, status: :ok, location: pages_borrower_dash_path }
       else
         format.html { render :edit }
         format.json { render json: @borrower.errors, status: :unprocessable_entity }

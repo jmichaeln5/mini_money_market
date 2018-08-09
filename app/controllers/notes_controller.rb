@@ -5,19 +5,23 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = @notable.notes.new note_params
-    @notable.save
-    redirect_to @notable, notice: "Your note has been requested."
 
-    # redirect_to pages_borrower_step_2_path, notice: "Your note has been requested."
+    if current_lender
+      @note = @notable.notes.new note_params
+      @notable.save
+      redirect_to investments_path , notice: "Your request has been sent."
+    elsif current_borrower
+        @note = @notable.notes.new note_params
+        @notable.save
+        redirect_to loans_path , notice: "Your request has been sent."
+    end
+
   end
 
   def index
-
     @lenders = Lender.all
     @borrowers = Borrower.all
     @notes = Note.all.to_a
-
   end
 
   def destroy

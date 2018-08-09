@@ -30,7 +30,7 @@ class LendersController < ApplicationController
 
     respond_to do |format|
       if @lender.save
-        format.html { redirect_to @lender, notice: 'Lender was successfully created.' }
+        format.html { redirect_to pages_lender_dash_path, notice: 'Lender was successfully created.' }
         format.json { render :show, status: :created, location: @lender }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class LendersController < ApplicationController
 
     respond_to do |format|
       if @lender.update(lender_params)
-        format.html { redirect_to @lender, notice: 'Lender was successfully updated.' }
+        format.html { redirect_to pages_lender_dash_path, notice: 'Lender was successfully updated.' }
         format.json { render :show, status: :ok, location: @lender }
       else
         format.html { render :edit }

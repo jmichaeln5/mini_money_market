@@ -1,3 +1,5 @@
+<!-- LENDER DASH -->
+
 <div class="text-center">
 
 <div class="container">
@@ -6,22 +8,22 @@
   Lender dash
 </h1>
 
+<h1>
 <% if @lender.first_name.blank? || @lender.last_name.blank? %>
-    <h1>
       Welcome <%= current_lender.email %>
 <% else %>
      Welcome <%= @lender.full_name %>
-   </h1>
 <% end %>
+</h1>
 
 <!-- <%#= render partial: "notes/notes", locals: {notable: @lender}  %> -->
 
 <br>
 
-<%= link_to 'View My Profile', lender_path(@lender), class:"btn btn-outline-primary" %>
+<!-- <%= link_to 'View My Profile', lender_path(@lender), class:"btn btn-outline-primary" %> -->
 <%= link_to 'Edit My Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
 </div>
-
+<br>
 <hr>
 
 <% if
@@ -34,8 +36,12 @@
 %>
 
 <br>
+<%= link_to 'My Investments', investments_path, class:"btn btn-outline-primary btn-block btn-lg" %>
+<br>
+<hr>
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
   Make a Deposit
 </button>
 
@@ -63,9 +69,10 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nobis recusandae distinctio, ea fugit eligendi esse porro doloribus at hic numquam, voluptatem, beatae vel a illo dicta quos placeat, natus similique explicabo repudiandae. Expedita harum, doloribus voluptatibus perspiciatis! Iure, vitae quod quia nesciunt quasi, iste tempora aut qui consequuntur, atque alias consectetur repudiandae nisi ab voluptates veritatis debitis enim amet odit sit accusamus neque quidem! Tenetur voluptas eaque ipsam reprehenderit consequuntur maiores quas earum rem quos temporibus consectetur ratione expedita eum vero architecto, amet quisquam blanditiis eos aliquid cupiditate! Fugiat aut doloribus doloremque, iure mollitia et temporibus dolorum sequi sint.
             </div>
 
-        <h1> Investment Amount: </h1>
+        <h1> Click OK to continue </h1>
 
-        <%= render partial: "notes/form", locals: {notable: @lender}  %>
+          <%= link_to "OK", lender_path(current_lender), class:"btn btn-primary btn-block" %>
+        <!-- <%= render partial: "notes/form", locals: {notable: @lender}  %> -->
 
       </div>
 

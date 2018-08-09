@@ -1,5 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Mini Money Market</a>
+
+  <% if current_lender %>
+    <a class="navbar-brand" href="/pages/lender_dash">Mini Money Market</a>
+  <% elsif current_borrower %>
+    <a class="navbar-brand" href="/pages/borrower_dash">Mini Money Market</a>
+  <% else %>
+    <a class="navbar-brand" href="/">Mini Money Market</a>
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,20 +16,25 @@
 
     <% if current_lender %>
 
-    <li class="nav-item nav-link">
-        <%= link_to 'Home', root_path, class:"nav-link" %>
-    </li>
+    <!-- <li class="nav-item nav-link">
+      <%= link_to "Dashboard", @lender, class:"nav-link" %>
+    </li> -->
 
     <li class="nav-item nav-link">
-        <%= link_to 'Dashboard', pages_lender_dash_path(@lender), class:"nav-link" %>
-    </li>
-
-    <li class="nav-item nav-link">
-        <%= link_to "Loans", notes_path, class:"nav-link" %>﻿﻿
+      <%= link_to "Dashboard", pages_lender_dash_path(current_lender), class:"nav-link" %>
     </li>
 
     <!-- <li class="nav-item nav-link">
-        <%= link_to 'Loans', notes_path, class:"nav-link" %>
+        <%= link_to "Lender step2", pages_lender_step_2_path, class:"nav-link" %>﻿﻿
+    </li> -->
+
+
+    <!-- <li class="nav-item nav-link">
+        <%= link_to "My Investments", investments_path, class:"nav-link" %>﻿﻿
+    </li> -->
+
+    <!-- <li class="nav-item nav-link">
+        <%= link_to "Notes", notes_path, class:"nav-link" %>﻿﻿
     </li> -->
 
       <!-- <li class="nav-item nav-link">
@@ -42,14 +55,13 @@
 
     <% elsif current_borrower %>
 
-    <li class="nav-item nav-link">
-        <%= link_to 'Home', root_path, class:"nav-link" %>
-    </li>
-
-
       <li class="nav-item nav-link">
-          <%= link_to 'Dashboard', pages_borrower_dash_path(@borrower), class:"nav-link" %>
+          <%= link_to 'Dashboard', pages_borrower_dash_path(current_borrower), class:"nav-link" %>
       </li>
+
+      <!-- <li class="nav-item nav-link">
+          <%= link_to 'Loans', loans_path, class:"nav-link" %>
+      </li> -->
 
       <!-- <li class="nav-item nav-link">
           <%= link_to 'Borrowers', borrowers_path, class:"nav-link" %>

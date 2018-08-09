@@ -12,30 +12,15 @@
        Welcome <%= @borrower.full_name %>
   <% end %>
 </h1>
+<br>
 
-<%= link_to 'View My Profile', borrower_path(@borrower), class:"btn btn-outline-primary" %>
+
+<!-- <%= link_to 'View My Profile', borrower_path(@borrower), class:"btn btn-outline-primary" %> -->
 <%= link_to 'Edit My Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
 </div>
 
 <br>
 
-<%#= render partial: "notes/notes", locals: {notable: @borrower}  %>
-
-
-<%# current_borrower.notes.each do |note| %>
-<%#=  Borrower.column_names[1..30] do |column| %>
-<%# end %>
-<%# end %>
-
-
-<!-- <%= @borrowers.map {|model| model.attributes.slice(:id, :first_name)} %>
-<br>
-<%= @borrowers.map { |model| model.attributes.slice[0] } %> -->
-<%#= @borrowers.map {|model| model.attributes.slice(:email)} %>
-<%#= Borrower.cloumn_names[1..30].map { |model| model.attributes } %>
-
-
-<br>
 <hr>
 
  <% if
@@ -50,10 +35,13 @@
    @borrower.start_date.present? &&
    @borrower.salary.present?
  %>
+<br>
+ <%= link_to 'My Loans', loans_path, class:"btn btn-outline-primary btn-block btn-lg" %>
+<br>
+<hr>
 
  <!-- Button trigger modal -->
- <br>
- <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">
+ <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
    Apply for Loan
  </button>
  <!-- Modal -->
@@ -73,20 +61,21 @@
            <h1> Salary: </h1>
            <h3>$<%= @borrower.salary.to_i %></h3>
          </form>
-
+    <hr>
          <form>
            <h1> Monthly Income: </h1>
            <h3>$<%= @borrower.salary.to_i/12 %></h3>
-           <br>
          </form>
-
+         <hr>
          <form action="file">
            <h1>Add Pay Stub:</h1>
            <input type="file" name="Pay Stub"><br>
          </form>
+<br>
 
-         <form>
-           <h1> Loan Amount: </h1>
+  <hr>
+           <button type="button" class="btn btn-outline-primary btn-block"> Connect to bank </button>
+           <hr>
 
          <div>
            <h1>Terms of Service:</h1>
@@ -102,17 +91,10 @@
          <%#= render partial: "notes/form", locals: {notable: @borrower.find(noteable)}  %>
          <%#= render partial: "notes/form", locals: {notable: @borrower.find(noteable)}  %>
 
+        <h1>Click OK to continue</h1>
 
-         <%= form_with(model: [@borrower, Note.new], local: true) do |form |%>
-           <div class="field">
-             <%= form.label :content, "Amount:" %>
-             <br>
-             <%= form.text_field :content %>
-           </div>
-         <br>
-             <%= form.submit "Submit", class:"btn btn-primary" %>
-         <% end %>
-       </form>
+         <%= link_to "OK", borrower_path(current_borrower), class:"btn btn-primary btn-block" %>
+
        <br>
        </div>
        </div>

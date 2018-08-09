@@ -1,0 +1,68 @@
+<div class="text-center ">
+
+<h1>Pending Investments</h1>
+<br>
+
+<% if @lender.notes.count < 1 %>
+
+<div class="card">
+  <div class="card-body">
+
+      <h1 class="card-title"> You Have <font style="color:red">0</font> Pending Investments. </h1>
+
+     </div>
+ </div>
+
+
+
+
+
+
+<% else %>
+
+<div class="card">
+  <div class="card-body">
+      <h2 class="card-title"> Sum of Pending Investments </h2>
+<hr>
+      <% @start_amount = 0 %>
+      <% @empty_arr = [] %>
+      <% @notable.notes.each do |note| %>
+        <% @empty_arr.push note[:content].to_i %>
+        <%  @sum_array = @empty_arr.inject(0){|start_amount, x| start_amount + x } %>
+      <% end %>
+
+       <h3 class="card-text"> $<%= @sum_array %> </h3>
+
+     </div>
+ </div>
+
+<div class="text-center">
+<br>
+
+<div class="card">
+  <div class="card-body">
+  <h2 class="card-title"> <font style="color:red"> <%= @notable.notes.count %> </font> Pending Investments </h2>
+<hr>
+  <% @notable.notes.each do |note| %>
+    <p>
+      <h3>Invested $<%= note.content %>  </h3>
+          <h5 class="card-title"> <%= time_ago_in_words(note.created_at) %> ago.  </h5>
+      <!-- <h1> $<%= note.content %> <%= note.created_at %> </h1></h1> -->
+    </p>
+    <hr>
+
+<% end %>
+
+
+     </div>
+
+ </div>
+
+
+</div>
+<% end %>
+
+<br>
+<%= link_to 'Back', :back , class:"btn btn-outline-primary" %>
+
+</div>

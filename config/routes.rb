@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  # devise_for :borrowers
-  # devise_for :lenders
-
   root 'pages#home'
 
   get 'pages/login'
   get 'pages/register'
 
   get '/dashboard', to: 'pages#home'
+
+  get '/investments', to: 'pages#investments'
+  get '/loans', to: 'pages#loans'
 
   get 'pages/borrower_dash'
   get 'pages/lender_dash'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # devise_for :borrowers, controllers: { registrations: "registrations" }
   devise_for :borrowers, controllers: { borrowers_registrations: "borrowersregistrations" } # broken... Make new file for old RegistrationsController with borrowers methods and path in line above
 
-  # devise_for :borrowers, controllers: { borrowers: "borrowers" }
+  resources :notes
 
   resources :borrowers do
     resources :notes, module: :borrowers#, only: [:index, :new, :create]
@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   end
   # resources :notes, only: [:show, :edit, :update, :destroy]
 
-  resources :notes
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

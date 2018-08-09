@@ -8,9 +8,12 @@
         <li><%= message %></li>
       <% end %>
       </ul>
-      
+
     </div>
   <% end %>
+
+  <h2> Personal Information </h2>
+<hr>
 
   <div class="field">
     <%= form.label :first_name %>
@@ -47,7 +50,11 @@
     <%= form.number_field :zip, id: :lender_zip %>
   </div>
 
+<br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class:"btn btn-primary" %>
   </div>
+
+
 <% end %>

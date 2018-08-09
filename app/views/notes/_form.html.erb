@@ -1,11 +1,9 @@
 <%= form_with(model: [notable, Note.new], local: true) do |form |%>
-  <div class="field">
+  <div class="field continer">
     <%= form.label :content, "Amount:" %>
     <br>
-    <%= form.text_field :content %>
+    $<%= form.text_field :content %>
   </div>
 
-<br>
-
-    <%= form.submit "Submit", class:"btn btn-primary" %>
+    <%= form.submit "Submit", class:"btn btn-primary btn-lg", data: { confirm: 'Are you sure?' } %>
 <% end %>

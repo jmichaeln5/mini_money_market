@@ -1,34 +1,23 @@
 <div class="text-center">
 
-<h1>
-<% if @lender.first_name.blank? || @lender.last_name.blank? %>
-    <%= @lender.email %>'s Public Profile
-   <% else %>
-     <%= @lender.full_name %>'s Public Profile
-   <% end %>
-</h1>
-
-<% if Lender.find(params[:id]) == @lender.id %>
-<br><hr>
-<%= link_to 'Edit My Profile', edit_lender_path(@lender), class:"btn btn-outline-secondary" %>
-<hr><br>
-<% end  %>
+<div class="card text-center">
+  <div class="card-header">
+    <h1> INVESTMENT CENTER:</h1>
+  </div>
+    <h1 stlye="color:#6e6e6e">
 
 
-<%= show_non_blank_field "Lender:", @lender.full_name %>
-<%= show_non_blank_field "Phone:", @lender.phone %>
-<%= show_non_blank_field "Email:", @lender.email %>
+      <%= render partial: "notes/form", locals: {notable: @lender}  %>
 
-<!-- <hr> -->
 
-<%= render partial: "notes/notes", locals: {notable: @lender}  %>
-<%= render partial: "notes/form", locals: {notable: @lender}  %>
 
+    </h1>
+  <div class="card-footer text-muted">
+  </div>
+</div>
 
 <br>
-<hr>
-<br>
+<%= link_to 'Back',  :back, class:"btn btn-outline-primary" %>
 
-<%= link_to 'Back', :back , class:"btn btn-outline-primary" %>
 
 </div>

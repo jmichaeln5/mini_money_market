@@ -1,35 +1,20 @@
 <div class="text-center">
 
-  <h1>
-  <% if @borrower.first_name.blank? || @borrower.last_name.blank? %>
-      Welcome <%= @borrower.email %>
-     <% else %>
-      Welcome <%= @borrower.full_name %>
-     <% end %>
-  </h1>
+<div class="card text-center">
+  <div class="card-header">
+    <h1> LOAN CENTER:</h1>
+  </div>
+    <h1 stlye="color:#6e6e6e">
 
-<% if Borrower.find(params[:id]) == @borrower.id %>
-<br><hr>
-<%= link_to 'Edit My Profile', edit_borrower_path(@borrower), class:"btn btn-outline-secondary" %>
-<hr><br>
-<% end  %>
+      <%= render partial: "notes/form", locals: {notable: @borrower}  %>
 
-<%= show_non_blank_field "Borrower:", @borrower.full_name %>
-<%= show_non_blank_field "Current Position:", @borrower.current_position %>
-<%= show_non_blank_field "Company:", @borrower.company_name %>
-<%= show_non_blank_field "Email:", @borrower.email %>
+    </h1>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
 <br>
-<%= show_non_blank_field "Bio", @borrower.bio %>
-
-<!-- <hr> -->
-<%#= render partial: "notes/notes", locals: {notable: @borrower}  %>
-<%#= render partial: "notes/form", locals: {notable: @borrower}  %>
-
-<hr>
-<br>
-
-<%= link_to 'Back', :back, class:"btn btn-outline-primary" %>
-
+<%= link_to 'Back',  :back, class:"btn btn-outline-primary" %>
 
 
 </div>

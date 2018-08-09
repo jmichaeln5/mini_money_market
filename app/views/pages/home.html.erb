@@ -1,8 +1,8 @@
 
-   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+   <div class="pricing-header px-3 pt-md-5 pb-md-4 mx-auto text-center">
      <h1 class="display-4">Mini Money Market</h1>
-     <br>
-       <%= link_to "Login", pages_login_path, class:"btn btn-outline-primary btn-block" %>﻿﻿
+
+       <%= link_to "Login", pages_login_path, class:"btn btn-outline-primary btn-block" unless @lender || @borrower %>﻿﻿
 
    </div>
 

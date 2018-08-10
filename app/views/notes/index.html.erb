@@ -3,6 +3,9 @@
   <br>
 <br>
 
+
+<h1 class="card-title display-4 "> Admin Dash </h1>
+<br>
   <div class="card">
           <div class="card-body">
 
@@ -12,7 +15,6 @@
               <% @empty_arr.push note[:content].to_i %>
               <%  @sum_array = @empty_arr.inject(0){|start_amount, x| start_amount + x } %>
             <% end %>
-
 
             <h1 class="card-title display-4 "> $<%= @sum_array %> Dollars Circulated </h1>
   <hr>

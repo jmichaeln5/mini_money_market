@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'pages/login'
   get 'pages/register'
 
-  get '/dashboard', to: 'pages#home'
-
   get '/investments', to: 'pages#investments'
   get '/loans', to: 'pages#loans'
 
@@ -21,7 +19,7 @@ Rails.application.routes.draw do
   # devise_for :borrowers, controllers: { registrations: "registrations" }
   devise_for :borrowers, controllers: { borrowers_registrations: "borrowersregistrations" } # broken... Make new file for old RegistrationsController with borrowers methods and path in line above
 
-  resources :notes
+  get '/admin', to: 'notes#index'
 
   resources :borrowers do
     resources :notes, module: :borrowers#, only: [:index, :new, :create]

@@ -30,7 +30,9 @@ class PagesController < ApplicationController
   def investments
     @lenders = Lender.all
     @lender = current_lender
+
     @borrowers = Borrower.all
+
     @notes = Note.all.to_a
     @notable = current_lender
   end
@@ -41,6 +43,7 @@ class PagesController < ApplicationController
 
     @borrowers = Borrower.all
     @borrower = current_borrower
+    
     @notes = Note.all.to_a
     @notable = current_borrower
   end

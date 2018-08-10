@@ -1,24 +1,29 @@
+<div class="container">
+  <div class="container">
+  <br>
+  <br>
+  <br>
 
-   <div class="pricing-header px-3 pt-md-5 pb-md-4 mx-auto text-center">
-     <h1 class="display-4">Mini Money Market</h1>
 
-       <%= link_to "Login", pages_login_path, class:"btn btn-outline-primary btn-block" unless @lender || @borrower %>﻿﻿
+     <h1 class="display-4 text-center"> Mini Money Market</h1>
 
-   </div>
+<br>
 
-   <div class="container">
+     <%= link_to "Login", pages_login_path, class:"btn btn-outline-primary btn-block btn-lg" unless @lender || @borrower %>﻿﻿
+
+
      <div class="card-deck mb-3 text-center">
        <div class="card mb-4 box-shadow">
          <div class="card-header">
            <h4 class="my-0 font-weight-normal">SignUp</h4>
          </div>
          <div class="card-body">
-           <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+           <h1 class="card-title pricing-card-title">$0 to Signup</h1>
            <ul class="list-unstyled mt-3 mb-4">
-             <li>10 users included</li>
-             <li>2 GB of storage</li>
-             <li>Email support</li>
-             <li>Help center access</li>
+             <li> Get Approved for a Loan Today.</li>
+             <li>Loans up to $10,000 Available.</li>
+             <li>Email Support.</li>
+             <li>Help Center Access.</li>
            </ul>
 
            <!-- Large modal -->
@@ -27,68 +32,59 @@
            <div class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
              <div class="modal-dialog">
                <div class="modal-content">
-
            			<br>
            			<br>
            			<br>
-
            			<div class="container">
            				<div class="row">
            					<div class="col">
            						<h1>Signup as </h1>
            						<%= link_to 'Lender', new_lender_registration_path, class:"btn btn-success" %>
            					</div>
-
            <br>
-
            					<div class="col">
            						<h1>Signup as</h1>
            						<%= link_to 'Borrower', new_borrower_registration_path, class:"btn btn-success" %>
            					</div>
            				</div>
                </div>
-
            		<br>
            		<br>
            		<br>
-
-
              </div>
            </div>
-
            </div>
-
-
          </div>
        </div>
+
        <div class="card mb-4 box-shadow">
          <div class="card-header">
-           <h4 class="my-0 font-weight-normal">Pro</h4>
+           <h4 class="my-0 font-weight-normal">Investment Program</h4>
          </div>
          <div class="card-body">
            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
            <ul class="list-unstyled mt-3 mb-4">
-             <li>20 users included</li>
-             <li>10 GB of storage</li>
-             <li>Priority email support</li>
-             <li>Help center access</li>
+             <li> Invest up to $5,000 a Month.</li>
+             <li>$100 Refferal Bonus.</li>
+             <li>Priority Email Support.</li>
+             <li>24/7 Help Center Access.</li>
            </ul>
-           <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+           <%= link_to "Investor Signup", new_lender_registration_path, class:"btn btn-block btn-primary btn-lg" %>
          </div>
        </div>
        <div class="card mb-4 box-shadow">
          <div class="card-header">
-           <h4 class="my-0 font-weight-normal">Enterprise</h4>
+           <h4 class="my-0 font-weight-normal">Borrower Program</h4>
          </div>
          <div class="card-body">
-           <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+          <h3><small class="text-muted"> Starting at</small></h3>
+
+           <h1 class="card-title pricing-card-title">$20 <small class="text-muted">/ mo</small></h1>
            <ul class="list-unstyled mt-3 mb-4">
-             <li>30 users included</li>
-             <li>15 GB of storage</li>
-             <li>Phone and email support</li>
-             <li>Help center access</li>
+             <li>No Credit No Problem.</li>
+             <li>Recieve Up to $10,000.</li>
            </ul>
-           <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+           <%= link_to "Borrower Signup", new_lender_registration_path, class:"btn btn-block btn-primary btn-lg" %>
          </div>
        </div>
      </div>
@@ -129,4 +125,12 @@
          </div>
        </div>
      </footer>
+
+     <br>
+
+
+
+
+
    </div>
+ </div>

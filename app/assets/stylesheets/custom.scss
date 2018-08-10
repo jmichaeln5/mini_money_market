@@ -1,0 +1,25 @@
+.backcolor {
+  // background-image: url("");
+  // background-image: url("https://images.pexels.com/photos/533930/pexels-photo-533930.jpeg");
+
+  // background-image: url("https://images.pexels.com/photos/830891/pexels-photo-830891.jpeg?");
+  background-image: url("https://images.pexels.com/photos/7613/pexels-photo.jpg?");
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-image: url("");
+
+  // background-repeat: no-repeat;
+}
+
+.container {
+  background-color: #fff;
+  height: auto;
+}
+
+.carousel {
+  width:640px;
+  height:360px;
+}

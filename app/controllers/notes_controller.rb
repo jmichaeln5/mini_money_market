@@ -22,6 +22,7 @@ class NotesController < ApplicationController
     @lenders = Lender.all
     @borrowers = Borrower.all
     @notes = Note.all.to_a
+    # @notes = Note.all
   end
 
   def destroy

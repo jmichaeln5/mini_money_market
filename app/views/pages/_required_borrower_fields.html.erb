@@ -22,17 +22,17 @@
 
   <div class="field">
     <%= form.label :first_name  %>
-    <%= form.text_field :first_name, id: :borrower_first_name, :value => Faker::Name.first_name  %>
+    <%= form.text_field :first_name, id: :borrower_first_name %>
   </div>
 
   <div class="field">
     <%= form.label :last_name%>
-    <%= form.text_field :last_name, id: :borrower_last_name, :value => Faker::Name.last_name  %>
+    <%= form.text_field :last_name, id: :borrower_last_name  %>
   </div>
 
   <div class="field">
     <%= form.label :phone    %>
-    <%= form.number_field :phone, id: :borrower_phone, :value=> Faker::PhoneNumber.phone_number %>
+    <%= form.number_field :phone, id: :borrower_phone%>
   </div>
 
   <div class="field">

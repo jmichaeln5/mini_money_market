@@ -1,40 +1,35 @@
 <div class="container text-center">
-  <br>
-  <br>
 <br>
-
-
+<br>
+<br>
 <h1 class="card-title display-4 "> Admin Dash </h1>
 <br>
   <div class="card">
           <div class="card-body">
-
+<!--(Begin) Finds & Adds Total Amount of Money Circulated -->
             <% @start_amount = 0 %>
             <% @empty_arr = [] %>
             <% @notes.to_a.each do |note| %>
               <% @empty_arr.push note[:content].to_i %>
               <%  @sum_array = @empty_arr.inject(0){|start_amount, x| start_amount + x } %>
             <% end %>
-
+<!--(End) Finds & Adds Total Amount of Money Circulated -->
             <h1 class="card-title display-4 "> $<%= @sum_array %> Dollars Circulated </h1>
-  <hr>
-
+<hr>
                <h2 class="card-text">  </h2>
-  <hr>
+<hr>
               <div class="row">
   <!-- Start of Lenders Column -->
               <div class="col">
                 <h1>  Lender's Investments </h1>
-
-                <br>
-
+<br>
                 <% @notes.each do |note| %>
                   <% if note.notable_type == "Lender"%>
                       <!-- <%=  note.notable_type %> -->
                       <%=  note.notable[:first_name] %>
                       <%=  note.notable[:last_name] %> Made an Invested Request of
                       $<%=  note[:content] %>
-                      <hr>
+<hr>
                   <% end %>
                 <% end %>
                 </div>
@@ -43,9 +38,7 @@
   <!-- Start of Borrowers Column -->
                 <div class="col">
                 <h1>  Borrower's Loans </h1>
-
-                    <br>
-
+<br>
                     <% @notes.each do |note| %>
                       <% if note.notable_type == "Borrower"%>
                           <!-- <%=  note.notable_type %> -->

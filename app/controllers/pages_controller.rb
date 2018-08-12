@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_borrower! , only: [:borrower_dash, :loans]
-  # before_action :authenticate_lender, only: [:lender_dash]
+  before_action :authenticate_lender! , only: [:lender_dash, :investments]
 
   def home
     @borrower = current_borrower
@@ -43,7 +43,7 @@ class PagesController < ApplicationController
 
     @borrowers = Borrower.all
     @borrower = current_borrower
-    
+
     @notes = Note.all.to_a
     @notable = current_borrower
   end

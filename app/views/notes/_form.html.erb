@@ -1,9 +1,48 @@
+<% if current_lender  %>
+
 <%= form_with(model: [notable, Note.new], local: true) do |form |%>
   <div class="field continer">
-    <%= form.label :content, "Amount:" %>
+    <%= form.label :content, "Investment Amount:" %>
     <br>
     $<%= form.text_field :content %>
   </div>
 
     <%= form.submit "Submit", class:"btn btn-primary btn-lg", data: { confirm: 'Are you sure?' } %>
 <% end %>
+
+<% elsif current_borrower  %>
+
+<%= form_with(model: [notable, Note.new], local: true) do |form |%>
+  <div class="field continer">
+    <%= form.label :content, "Request Loan:" %>
+    <br>
+    $<%= form.text_field :content %>
+    <!-- $<%= form.text_field :content, :value => @borrower.salary/12, disabled: true %> -->
+    <br>
+    <% form.text_field :content, :value => @borrower.salary/12 %>
+
+  </div>
+
+  <%= form.submit "Request Loan", class:"btn btn-success btn-lg", data: { confirm: 'Click ok to accept loan' } %>
+
+
+  <!-- <div class="btn-group">
+    <%= link_to "Decline", pages_borrower_dash_path, class:"btn btn-danger btn-lg", data: { confirm: 'Are you sure you would like to decline this loan?' } %>
+    <%= form.submit "Accept", class:"btn btn-success btn-lg", data: { confirm: 'Click ok to accept loan' } %>
+  </div> -->
+
+
+
+  <div class="row">
+    <div class="col">
+    </div>
+
+    <div class="col">
+    </div>
+
+  </div>
+
+<% end %>
+
+
+<% end  %>
